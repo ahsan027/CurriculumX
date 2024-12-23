@@ -29,8 +29,32 @@ if (isset($_SESSION['username']) &&
 <div class="container">
   <!-- NavBar -->
   <?php include "inc/NavBar.php"; ?>
+  <?php include "inc/SearchBox.php"; ?>
+
   <?php if ($courses) { ?>
   <h4 class="course-list-title">All Courses (<?=$row_count?>)</h4>
+
+<?php if($results && $results->num_rows > 0){ ?>
+    <div class="results">
+    <div class="row">
+        <?php while ($course = $results->fetch_assoc()): ?>
+          <div class="col-md-4">
+        <img src="../Upload/thumbnail/<?=$course["cover"]?>" 
+             class="img-fluid rounded-start" 
+             alt="course"
+             width="500">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><?=$course["title"]?></h5>
+          <p class="card-text"><?=$course["description"]?></p>
+          <p class="card-text"><small class="text-body-secondary"><?=$course["created_at"]?></small></p>
+          <a href="Course.php?course_id=<?=$course["course_id"]?>" class="btn btn-primary">View Course</a>
+        </div>
+      </div>
+<?php endwhile; ?>
+<?php } else{?>
+
   <div class="course-list">
 
     <?php foreach ($courses as $course) {?>
@@ -55,6 +79,7 @@ if (isset($_SESSION['username']) &&
   </div>
   <?php } ?>
   </div>
+  <?php } ?>
 <?php }else{ ?>
   <div class="alert alert-info" role="alert">
       0 courses record found in the database

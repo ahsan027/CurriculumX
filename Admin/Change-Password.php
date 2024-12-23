@@ -1,6 +1,6 @@
 <?php 
   # Header
-  $title = "Edit Profile - EduPulse";
+  $title = "Edit Profile -CurriCulumX";
   include "inc/Header.php";
 ?>
 <div class="container">

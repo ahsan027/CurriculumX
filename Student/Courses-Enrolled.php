@@ -57,7 +57,7 @@ if (isset($_SESSION['username']) &&
 
 
     # Header
-    $title = "EduPulse - ".$course['course']['title'];
+    $title = "CurriculumX - ".$course['course']['title'];
     include "inc/Header.php";
 ?>
 <div class="container">
