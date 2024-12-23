@@ -358,6 +358,61 @@ VALUES (
 --
 -- Table structure for table `coursesmaterial`
 --
+INSERT INTO
+    `course` (
+        `course_id`,
+        `title`,
+        `description`,
+        `instructor_id`,
+        `created_at`,
+        `status`,
+        `cover`
+    )
+VALUES (
+        3,
+        'Introduction to Computer Science',
+        'This course covers the fundamental concepts of computer science. Students will learn about algorithms, data structures, software engineering, and computer architecture. Additionally, they will gain practical programming skills in languages such as Python and Java. Emphasis will be placed on problem-solving and critical thinking, providing a strong foundation for further studies in computer science and related fields. By the end of this course, students will be equipped with the essential knowledge and skills required to tackle more advanced topics and real-world challenges in computing.',
+        1,
+        '2024-01-15',
+        'Public',
+        'intro_cs.jpg'
+    ),
+    (
+        7,
+        'Advanced Mathematics',
+        'Delve into advanced mathematical concepts, including calculus, linear algebra, and differential equations. This course is designed to provide a deep understanding of mathematical theories and their applications in real-world scenarios. Students will explore topics such as multivariable calculus, eigenvalues, eigenvectors, and systems of linear equations. Ideal for those pursuing engineering, physics, or higher studies in mathematics, this course will enhance problem-solving abilities and analytical thinking. Through rigorous exercises and practical examples, students will develop a comprehensive understanding of advanced mathematical principles.',
+        2,
+        '2024-02-01',
+        'Public',
+        'advanced_math.jpg'
+    ),
+    (
+        13,
+        'Creative Writing',
+        'Explore the art of creative writing through various genres such as fiction, poetry, and non-fiction. This course encourages students to develop their unique voice and style while providing techniques and exercises to enhance their writing skills. Students will engage in workshops, peer reviews, and discussions to refine their craft. Topics include character development, plot structure, and literary devices. Perfect for aspiring authors and writers, this course will help students to express their creativity and effectively convey their ideas through the written word.',
+        3,
+        '2024-03-10',
+        'Private',
+        'creative_writing.jpg'
+    ),
+    (
+        22,
+        'Digital Marketing',
+        'Learn the strategies and tools needed to succeed in digital marketing. This course covers essential topics such as search engine optimization (SEO), social media marketing, content marketing, and email marketing. Students will gain hands-on experience with real-world projects and case studies. The course also explores data analytics, pay-per-click advertising, and the latest trends in digital marketing. By the end of the course, students will have a solid understanding of how to create and execute effective digital marketing campaigns to reach and engage their target audience.',
+        1,
+        '2024-04-05',
+        'Public',
+        'digital_marketing.jpg'
+    ),
+    (
+        8,
+        'Introduction to Philosophy',
+        'A comprehensive introduction to the major themes and concepts in philosophy. This course explores the works of great philosophers, ethical theories, metaphysics, and epistemology. Students will engage in critical thinking and discussions, enhancing their understanding of philosophical questions and ideas. Topics include the nature of reality, the existence of God, free will, and the foundation of morality. Through reading and analysis of philosophical texts, students will develop their reasoning and argumentation skills, preparing them for further philosophical inquiry or related fields.',
+        2,
+        '2024-05-20',
+        'Public',
+        'intro_philosophy.jpg'
+    );
 
 CREATE TABLE `coursesmaterial` (
     `material_id` int(11) NOT NULL,
