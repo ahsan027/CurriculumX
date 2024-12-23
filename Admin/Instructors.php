@@ -20,7 +20,7 @@ if (isset($_SESSION['username']) &&
     if($page != 1) $offset = ($page-1) * $row_num;
     $instructors = getSomeInstructors($offset, $row_num);
     # Header
-    $title = "EduPulse - Instructors";
+    $title = "CurriculumX - Instructors";
     include "inc/Header.php";
     
 ?>

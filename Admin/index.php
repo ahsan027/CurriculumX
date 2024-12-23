@@ -69,9 +69,9 @@ if (isset($_SESSION['username']) &&
   <div class="row">
   <?php foreach ($students as $student) {?>
 
-<div class="col-md-2 mb-3">
+<div class="col-md-4 mb-3">
             <div class="card">
-                <img src="../img/frnds/Official pic.jpg" class="card-img-top" alt="Card Image">
+                <img src="<?php $student['profile_img']?>" class="card-img-top" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
                     <p class="card-text">Student ID:  <?=$student["student_id"]?></p>

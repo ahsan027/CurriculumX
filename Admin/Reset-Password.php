@@ -1,6 +1,6 @@
 <?php 
   # Header
-  $title = "Edit Profile - EduPulse";
+  $title = "Edit Profile - CurriculumX";
   include "inc/Header.php";
 
   $type = $_GET['for'];

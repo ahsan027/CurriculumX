@@ -35,7 +35,7 @@ if (isset($_GET['search'])) {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             text-align: center;
-            padding-top: 100px;
+
         }
         .search-box {
             width: 800px;
