@@ -33,26 +33,64 @@ if (isset($_SESSION['username']) &&
   <?php if ($students) { ?>
   <h4>All Students (<?=$row_count?>)</h4>
 
+  <div class="mb-4 d-flex justify-content-center align-items-center">
+    <?php include 'inc/SearchBox.php' ?>
+  </div>
 
+  <?php if(isset($_GET['search'])){?>
+    <?php if ($results && $results->num_rows > 0): ?>
+    <div class="results">
+    <div class="row">
+
+        <?php while ($student = $results->fetch_assoc()): ?>
+          <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="../img/frnds/Official pic.jpg" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                    <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
+                    <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
+                    <p class="card-text">Dept: CSE</p>
+                    <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
+                    <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
+                </div>
+            </div>
+        </div>
+
+ 
+        <?php endwhile; ?>
+    </div>
+<?php elseif ($results): ?>
+    <div class="results">
+        <p>No results found.</p>
+    </div>
+<?php endif; ?>
+
+
+
+<?php }else{ ?> 
+  <div class="row">
+  <?php foreach ($students as $student) {?>
+
+<div class="col-md-2 mb-3">
+            <div class="card">
+                <img src="../img/frnds/Official pic.jpg" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                    <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
+                    <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
+                    <p class="card-text">Dept: CSE</p>
+                    <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
+                    <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
+                </div>
+            </div>
+        </div>
+
+  <?php } ?>
+  </div>
+  <?php } ?>
   <div class="container text-center">
   <div class="row">
 
-  <?php foreach ($students as $student) {?>
-
-    <div class="col-md-2 mb-3">
-                <div class="card">
-                    <img src="../img/frnds/Official pic.jpg" class="card-img-top" alt="Card Image">
-                    <div class="card-body">
-                        <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
-                        <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
-                        <p class="card-text">Dept: CSE</p>
-                        <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
-                        <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
-                    </div>
-                </div>
-            </div>
-
-      <?php } ?>
+  
 
   </div>
 
