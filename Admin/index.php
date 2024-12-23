@@ -44,11 +44,11 @@ if (isset($_SESSION['username']) &&
     <div class="col-md-5">
         <?php while ($student = $results->fetch_assoc()): ?>
             <div class="card">
-                <img src=<?php $student['profile_img']; ?> class="card-img-top" alt="Card Image">
+                <img src="../Upload/profile/<?=$student['profile_img']?>" class="card-img-top" alt="Card Image" width="150">
                 <div class="card-body">
                     <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
                     <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
-                    <p class="card-text">Dept: CSE</p>
+                    <p class="card-text">Dept: <?= $student['department_id']; ?></p>
                     <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
                     <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
                 </div>

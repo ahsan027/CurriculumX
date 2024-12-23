@@ -28,7 +28,7 @@ if (isset($_SESSION['username']) &&
   <div class="r-side p-5 shadow" style="max-width: 500px;">
       <!-- <h4>Student Details</h4><br> circle -->
       <div class="profile text-center">
-        <img  class="circle"
+        <img  class="card-img-top"
               src="../Upload/profile/<?=$student['profile_img']?>" alt="PROFILE IMG" width="150">
               <h5 class="p-2"><?=$student['first_name']?> <?=$student['last_name']?></h5>
       </div><br><br>
