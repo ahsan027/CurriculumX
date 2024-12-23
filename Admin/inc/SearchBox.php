@@ -38,7 +38,7 @@ if (isset($_GET['search'])) {
             padding-top: 100px;
         }
         .search-box {
-            max-width: 800px;
+            width: 800px;
             margin: 0 auto;
         }
         .logo {
