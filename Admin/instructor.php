@@ -15,7 +15,7 @@ if (isset($_SESSION['username']) &&
    }
    $courses = getCourseById($_id);
     # Header 
-    $title = "EduPulse - Student ";
+    $title = "CurriculumX - Student ";
     include "inc/Header.php";
 ?>
 
