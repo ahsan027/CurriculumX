@@ -12,7 +12,7 @@ if (isset($_SESSION['username']) &&
     $Course_count = getCourseCount();
     
     # Header 
-    $title = "EduPulse - System Analysis ";
+    $title = "CurriculumX - OverView ";
     include "inc/Header.php";
 ?>
 <div class="container">
@@ -20,7 +20,7 @@ if (isset($_SESSION['username']) &&
   <?php include "inc/NavBar.php"; ?>
   
   <div class="p-5 shadow">
-    <h4>System Analysis</h4><hr><br>
+    <h4>CurriculumX</h4><hr><br>
 
     <!-- Display Graphs/Charts for Analysis -->
     <div class="mb-5" style="max-width: 600px">

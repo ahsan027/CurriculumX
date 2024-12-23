@@ -19,7 +19,7 @@
               <a class="nav-link" href="Courses.php" ><i class="fa fa-graduation-cap"></i> Courses</a>
             </li>
              <li class="nav-item position-relative">
-              <a class="nav-link" href="System-Analysis.php" ><i class="fa fa-line-chart"></i> System Analysis</a>
+              <a class="nav-link" href="System-Analysis.php" ><i class="fa fa-line-chart"></i>OverView</a>
             </li>
             </ul>
             <ul class="navbar-nav ms-auto">
