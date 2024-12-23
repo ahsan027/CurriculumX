@@ -41,11 +41,10 @@ if (isset($_SESSION['username']) &&
     <?php if ($results && $results->num_rows > 0): ?>
     <div class="results">
     <div class="row">
-
+    <div class="col-md-5">
         <?php while ($student = $results->fetch_assoc()): ?>
-          <div class="col-md-4 mb-3">
             <div class="card">
-                <img src="../img/frnds/Official pic.jpg" class="card-img-top" alt="Card Image">
+                <img src=<?php $student['profile_img']; ?> class="card-img-top" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
                     <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
@@ -54,10 +53,9 @@ if (isset($_SESSION['username']) &&
                     <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
                 </div>
             </div>
+        <?php endwhile; ?>
         </div>
 
- 
-        <?php endwhile; ?>
     </div>
 <?php elseif ($results): ?>
     <div class="results">

@@ -35,7 +35,7 @@ if (isset($_GET['search'])) {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
             text-align: center;
-            padding-top: 100px;
+            /* padding-top: 100px;/ */
         }
         .search-box {
             width: 800px;
@@ -110,7 +110,7 @@ if (isset($_GET['search'])) {
 <div class="search-box">
     <div class="logo">Curriculum<span>X</span></div>
     <form class="search-form" method="GET" action="">
-        <input type="text" name="search" placeholder="Search here..." required>
+        <input type="text" name="search" placeholder="Search by id here..." required>
         <input type="submit" value="Search">
     </form>
 </div>
