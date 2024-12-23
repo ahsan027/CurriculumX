@@ -87,9 +87,6 @@ if (isset($_SESSION['username']) &&
   <?php } ?>
   <div class="container text-center">
   <div class="row">
-
-  
-
   </div>
 
   <?php if ($last_page > 1 ) { ?>
