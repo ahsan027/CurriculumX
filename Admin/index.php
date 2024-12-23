@@ -41,9 +41,10 @@ if (isset($_SESSION['username']) &&
     <?php if ($results && $results->num_rows > 0): ?>
     <div class="results">
     <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-9">
         <?php while ($student = $results->fetch_assoc()): ?>
             <div class="card">
+           
                 <img src="../Upload/profile/<?=$student['profile_img']?>" class="card-img-top" alt="Card Image" width="150">
                 <div class="card-body">
                     <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>

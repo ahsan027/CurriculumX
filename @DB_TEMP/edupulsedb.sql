@@ -1535,3 +1535,5 @@ VALUES (
         'chillgirl.jpg',
         3
     );
+
+SELECT * FROM student;
