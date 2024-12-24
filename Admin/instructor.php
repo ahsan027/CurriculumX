@@ -28,8 +28,9 @@ if (isset($_SESSION['username']) &&
       <!-- <h4>Student Details</h4><br> circle -->
       <div class="profile text-center">
         <img  class="circle"
-              src="../assets/Upload/profile/<?=$instructor['profile_img']?>" alt="PROFILE IMG" width="150">
+              src="<?=$instructor['profile_img']?>" alt="PROFILE IMG" width="150">
               <h5 class="p-2"><?=$instructor['first_name']?> <?=$instructor['last_name']?></h5>
+           
       </div><br><br>
         <ul class="list-group">
           <li class="list-group-item">First name: <?=$instructor['first_name']?></li>
