@@ -44,20 +44,48 @@ if (isset($_SESSION['username']) &&
     <div class="col-md-5">
         <?php while ($student = $results->fetch_assoc()): ?>
             <div class="card">
-                <img src=<?php $student['profile_img']; ?> class="card-img-top" alt="Card Image">
+                <img src=<?php echo $student['profile_img']; ?> class="card-img-top" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
                     <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
-                    <p class="card-text">Dept: CSE</p>
+                    <p class="card-text">Dept: 
+     <?php 
+    $id = $student["student_id"];
+    $conn = new mysqli("localhost", "root", "", "edupulsedb");
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $query = "SELECT d.department_name FROM department d INNER JOIN student s ON s.department_id = d.department_id WHERE s.student_id = $id";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo $row['department_name'];
+        }
+    } else {
+        echo "No department found";
+    }
+
+    $conn->close();
+?>
+
+                    </p>
+                    <div class="d-flex justify-content-center align-items-center">
                     <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
-                    <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
+                    <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger">Delete</button>
+
+                    </div>
+                    
                 </div>
             </div>
         <?php endwhile; ?>
         </div>
 
     </div>
-<?php elseif ($results): ?>
+<?php elseif (!$results): ?>
     <div class="results">
         <p>No results found.</p>
     </div>
@@ -67,23 +95,45 @@ if (isset($_SESSION['username']) &&
 
 <?php }else{ ?> 
   <div class="row">
-  <?php foreach ($students as $student) {?>
+<?php foreach ($students as $student): ?>
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <img src="<?= $student['profile_img']; ?>" class="card-img-top" alt="Card Image">
+            <div class="card-body">
+                <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
+                <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
+                <p class="card-text">Dept: 
+                  <?php 
+    $id = $student["student_id"];
+    $conn = new mysqli("localhost", "root", "", "edupulsedb");
 
-<div class="col-md-4 mb-3">
-            <div class="card">
-                <img src="<?php $student['profile_img']?>" class="card-img-top" alt="Card Image">
-                <div class="card-body">
-                    <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
-                    <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
-                    <p class="card-text">Dept: CSE</p>
-                    <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
-                    <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
-                </div>
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $query = "SELECT d.department_name FROM department d INNER JOIN student s ON s.department_id = d.department_id WHERE s.student_id = $id";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo $row['department_name'];
+        }
+    } else {
+        echo "No department found";
+    }
+
+    $conn->close();
+?></p>
+
+                <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
+                <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
             </div>
         </div>
+    </div>
+<?php endforeach; ?>
+</div>
 
-  <?php } ?>
-  </div>
   <?php } ?>
   <div class="container text-center">
   <div class="row">

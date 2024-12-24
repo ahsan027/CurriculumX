@@ -604,421 +604,59 @@ CREATE TABLE `student` (
     `profile_img` varchar(255) NOT NULL DEFAULT 'default.jpg'
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
+<?php
+$password = password_hash("12345", PASSWORD_DEFAULT);
+?>
+
+INSERT INTO `student` (`student_id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `date_of_joined`, `status`, `profile_img`)
+VALUES
+(101, 'arif23', '<?= $password ?>', 'Arif', 'Hossain', 'arif.hossain@example.com', '2000-01-15', '2024-01-15', 'Active', '../upload/profile/default.jpg'),
+(102, 'naimur45', '<?= $password ?>', 'Naimur', 'Rahman', 'naimur.rahman@example.com', '1999-04-20', '2024-02-01', 'Active', '../upload/profile/default.jpg'),
+(103, 'kamal67', '<?= $password ?>', 'Kamal', 'Ahmed', 'kamal.ahmed@example.com', '2001-03-10', '2024-03-10', 'Not Active', '../upload/profile/default.jpg'),
+(104, 'aminul89', '<?= $password ?>', 'Aminul', 'Islam', 'aminul.islam@example.com', '1998-06-05', '2024-04-05', 'Active', '../upload/profile/default.jpg'),
+(105, 'rafiq12', '<?= $password ?>', 'Rafiq', 'Chowdhury', 'rafiq.chowdhury@example.com', '2002-07-25', '2024-05-20', 'Active', '../upload/profile/default.jpg'),
+(106, 'sabina34', '<?= $password ?>', 'Sabina', 'Yasmin', 'sabina.yasmin@example.com', '1997-09-10', '2024-06-15', 'Not Active', '../upload/profile/chillgirl.jpg'),
+(107, 'rina56', '<?= $password ?>', 'Rina', 'Akter', 'rina.akter@example.com', '2003-02-14', '2024-07-22', 'Active', '../upload/profile/chillgirl.jpg'),
+(108, 'shamima78', '<?= $password ?>', 'Shamima', 'Sultana', 'shamima.sultana@example.com', '1996-11-30', '2024-08-10', 'Active', '../upload/profile/chillgirl.jpg'),
+(109, 'nusrat90', '<?= $password ?>', 'Nusrat', 'Jahan', 'nusrat.jahan@example.com', '2004-12-05', '2024-09-25', 'Active', '../upload/profile/chillgirl.jpg'),
+(110, 'mala12', '<?= $password ?>', 'Mala', 'Khatun', 'mala.khatun@example.com', '1995-05-19', '2024-10-15', 'Not Active', '../upload/profile/chillgirl.jpg');
+
+
+CREATE TABLE `department` (
+    `department_id` int(11) NOT NULL AUTO_INCREMENT,
+    `department_name` varchar(255) NOT NULL,
+    PRIMARY KEY (`department_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO `department` (`department_name`,`department_id`)
+VALUES
+('CSE',1),
+('BBA',2),
+('EEE',3);
+
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO
-    `student` (
-        `student_id`,
-        `username`,
-        `password`,
-        `first_name`,
-        `last_name`,
-        `email`,
-        `date_of_birth`,
-        `date_of_joined`,
-        `status`,
-        `profile_img`
-    )
-VALUES (
-        1,
-        'fuad17',
-        '$2y$10$KisOzDSecV5ilUfh4OqyGuXqWb./vzA3EHQ0tZynd0E7sjaqEZWXe',
-        'Fuad',
-        'Ahmed',
-        'fuadahmedQ@gmail.com',
-        '2000-05-06',
-        '2024-01-14',
-        'Active',
-        'fuad1765be460dc9e468.81974271.png'
-    ),
-    (
-        2,
-        'leta2020',
-        '$2y$10$Zye7SP.JPXk6y9TVrwgmuOzUiTRwsvjHhsvPVwsleDUgJS8EjfOCe',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'leta202065a6eec810f097.68733156.png'
-    ),
-    (
-        23,
-        'hdhg2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'default.jpg'
-    ),
-    (
-        25,
-        'lfdeta2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'default.jpg'
-    ),
-    (
-        56,
-        'kjhljhl',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'default.jpg'
-    ),
-    (
-        65,
-        'leta2dfd020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        152,
-        'fdffuad17',
-        '$2y$10$0y7cu/y5FyPnEX4VR0Ybtu8rwexchCi5iDbJkrhFqvm4Wb8QxNIUu',
-        'Fuad',
-        'Ahmed',
-        'fuadahmed@gmail.com',
-        '2000-05-02',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        223,
-        'test2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        256,
-        'letrtra2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        453,
-        'dsgsg',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        456,
-        'ldfdeta2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        543,
-        'fgfdgbn',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        564,
-        'fdhgfdhfd',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        565,
-        'sfrjjkg',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        642,
-        'fdleta2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        656,
-        'letgfddgda2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        662,
-        'Helogf',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        678,
-        'hdfhdfh',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        862,
-        'dfdghh',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        879,
-        'fdgfdgfd',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        2565,
-        'leta2dfd020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'default.jpg'
-    ),
-    (
-        2656,
-        'letdfda2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        2686,
-        'hfhhdzs',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        3632,
-        'sfgsg',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'default.jpg'
-    ),
-    (
-        5652,
-        'lehuta2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        6536,
-        'leta2dfd020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        6561,
-        'leta20fdf20',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        6987,
-        'adsfsf',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        20853,
-        'yryreyu',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'default.jpg'
-    ),
-    (
-        23453,
-        'gfsf2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        25655,
-        'leuiyta2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'default.jpg'
-    ),
-    (
-        52341,
-        'ldfdgeta2020',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Not Active',
-        'default.jpg'
-    ),
-    (
-        654346,
-        'ytujfd',
-        '$2y$10$nL5cCfrOudcL.64BhtBlfuY47RdX8DCHdUSwFTNqa3rDAqYJP/hc2',
-        'Leta',
-        'Aklilu',
-        'leta@gmail.com',
-        '1998-05-12',
-        '2024-01-14',
-        'Active',
-        'default.jpg'
-    );
+ALTER TABLE `student` ADD `department_id` int(11) DEFAULT NULL;
+
+UPDATE `student` SET `department_id` = 1 WHERE `student_id` IN (101, 102, 103, 104);
+UPDATE `student` SET `department_id` = 2 WHERE `student_id` IN (105, 106, 107);
+UPDATE `student` SET `department_id` = 3 WHERE `student_id` IN (108, 109, 110);
+
+
+ALTER TABLE `student` MODIFY `department_id` int(11) NOT NULL;
+
+
+ALTER TABLE `student`
+ADD CONSTRAINT `fk_department`
+FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`);
 
 -- --------------------------------------------------------
+ALTER TABLE `student` DROP FOREIGN KEY `fk_department`;
+
+SELECT * FROM `student` WHERE `department_id` NOT IN (1, 2, 3);
 
 --
 -- Table structure for table `student_progress`
@@ -1045,9 +683,17 @@ INSERT INTO
 VALUES (13, 1, 1, 100),
     (14, 19, 1, 100),
     (15, 19, 2, 100);
+ALTER TABLE `student` MODIFY `department_id` int(11) NOT NULL;
+
+ALTER TABLE `student`
+FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`);
 
 -- --------------------------------------------------------
+DROP TABLE IF EXISTS `student`;
+DROP TABLE IF EXISTS `department`;
 
+
+SELECT d.department_name,count(*) FROM student s INNER JOIN Department d ON s.department_id = d.department_id GROUP BY d.department_name;
 --
 -- Table structure for table `topic`
 --
@@ -1369,3 +1015,14 @@ SELECT * FROM admin;
 SELECT * FROM Student;
 
 SELECT * FROM course;
+
+CREATE TABLE announcement (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    fname VARCHAR(255) NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+DROP TABLE pdf_files;
+
+SELECT d.department_name,count(*) as TotalStudents FROM student s INNER JOIN department d ON s.department_id = d.department_id GROUP BY d.department_id;

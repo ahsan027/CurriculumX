@@ -14,13 +14,42 @@ if (isset($_SESSION['username']) &&
     # Header 
     $title = "CurriculumX - OverView ";
     include "inc/Header.php";
+
+
+$conn = new mysqli("localhost","root","","edupulsedb");
+
+
+
+if($conn->connect_error){
+    die("Connection Failed");
+}
+
+$query = "SELECT * FROM announcement ORDER BY id DESC LIMIT 1";
+$result = $conn->query($query);
 ?>
 <div class="container">
   <!-- NavBar -->
   <?php include "inc/NavBar.php"; ?>
   
   <div class="p-5 shadow">
-    <h4>CurriculumX</h4><hr><br>
+    <div class="d-flex align-items-center gap-2">
+        <h4>CurriculumX</h4>
+    <a href="announcement.php" class="ml-2">
+        <button class="btn btn-success btn-sm">Upload Announcement</button>
+    </a></div>
+    <div class="container-xl d-flex justiy-content-center align-items-center">
+<?php if($result->num_rows>0){
+    while($info = $result->fetch_assoc()){
+        echo "<div>"; 
+        echo "<h3>" . $info["fname"] . "</h3>"; 
+        echo "<iframe src='" . $info["file_path"] . "' width='600' height='400'></iframe>"; 
+        echo "</div>";
+    }
+}
+?>
+    </div>
+
+    
 
     <!-- Display Graphs/Charts for Analysis -->
     <div class="mb-5" style="max-width: 600px">
@@ -42,25 +71,20 @@ if (isset($_SESSION['username']) &&
         </ul>
     </div>
 
-    <!-- Display Recent Activities -->
-    <div class="mb-4 system-activities">
-        <h4>Recent Activities</h4>
-        <ul>
-            <li>10 new students joined this week.</li>
-            <li>5 new courses were created.</li>
-            <li>Quiz completion rates have increased by 15%.</li>
-            <!-- Add more recent activities as needed -->
-        </ul>
-    </div>
-
     <!-- Display Course Enrollment Statistics -->
     <div class="mb-5 enrollment-statistics">
-        <h4>Course Enrollment Statistics</h4>
+        <h4>Departmental Enrollment Statistics</h4>
         <p>Top 3 Courses with Highest Enrollment</p>
         <ul class="d-flex">
-            <li><span>150 students</span>Course A </li>
-            <li><span>100 students</span>Course B</li>
-            <li><span>120 students</span>Course C</li>
+            <?php $query= "SELECT d.department_name,count(*) as TotalStudents FROM student s INNER JOIN department d ON s.department_id = d.department_id GROUP BY d.department_id;";
+            $result = $conn->query($query);
+            if ($result) { 
+                while ($row = $result->fetch_assoc()) { 
+                    echo "<li><span>" . $row['TotalStudents'] . " students</span> " . $row['department_name'] . "</li>";
+                 } } 
+                    else { echo "<li>Error: " . $conn->error . "</li>"; }
+            ?>
+
             <!-- Add more statistics as needed -->
         </ul>
     </div><br>

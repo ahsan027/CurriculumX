@@ -57,7 +57,7 @@ class Student{
    function getSome($offset, $num){
 
       try {
-          $sql = 'SELECT * FROM '. $this->table_name .' LIMIT :offset, :l';
+        $sql = 'SELECT * FROM '. $this->table_name .' ORDER BY username LIMIT :offset, :l';
           $stmt = $this->conn->prepare($sql);
           $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
           $stmt->bindParam(':l', $num, PDO::PARAM_INT);
