@@ -41,9 +41,10 @@ if (isset($_SESSION['username']) &&
     <?php if ($results && $results->num_rows > 0): ?>
     <div class="results">
     <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-9">
         <?php while ($student = $results->fetch_assoc()): ?>
             <div class="card">
+<<<<<<< HEAD
                 <img src=<?php echo $student['profile_img']; ?> class="card-img-top" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
@@ -74,6 +75,14 @@ if (isset($_SESSION['username']) &&
 
                     </p>
                     <div class="d-flex justify-content-center align-items-center">
+=======
+           
+                <img src="../Upload/profile/<?=$student['profile_img']?>" class="card-img-top" alt="Card Image" width="150">
+                <div class="card-body">
+                    <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
+                    <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
+                    <p class="card-text">Dept: <?= $student['department_id']; ?></p>
+>>>>>>> 2a6187c29bb1a17b3594bcde90e88b5cc6e08baf
                     <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
                     <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger">Delete</button>
 

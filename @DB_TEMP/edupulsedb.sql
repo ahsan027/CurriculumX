@@ -1016,6 +1016,7 @@ SELECT * FROM Student;
 
 SELECT * FROM course;
 
+<<<<<<< HEAD
 CREATE TABLE announcement (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     fname VARCHAR(255) NOT NULL,
@@ -1026,3 +1027,172 @@ CREATE TABLE announcement (
 DROP TABLE pdf_files;
 
 SELECT d.department_name,count(*) as TotalStudents FROM student s INNER JOIN department d ON s.department_id = d.department_id GROUP BY d.department_id;
+=======
+use edupulsedb;
+
+CREATE TABLE `department` (
+    `department_id` int(11) NOT NULL AUTO_INCREMENT,
+    `department_name` varchar(255) NOT NULL,
+    PRIMARY KEY (`department_id`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
+
+INSERT INTO
+    `department` (
+        `department_id`,
+        `department_name`
+    )
+VALUES (1, 'CSE'),
+    (2, 'MNS'),
+    (3, 'EEE');
+
+ALTER TABLE `student`
+ADD `department_id` int(11) NOT NULL,
+ADD CONSTRAINT `fk_department` FOREIGN KEY (`department_id`) REFERENCES `department` (`department_id`);
+
+INSERT INTO
+    `student` (
+        `student_id`,
+        `username`,
+        `password`,
+        `first_name`,
+        `last_name`,
+        `email`,
+        `date_of_birth`,
+        `date_of_joined`,
+        `status`,
+        `profile_img`,
+        `department_id`
+    )
+VALUES (
+        101,
+        'arif23',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Arif',
+        'Hossain',
+        'arif.hossain@example.com',
+        '2000-01-15',
+        '2024-01-15',
+        'Active',
+        'default.jpg',
+        1
+    ),
+    (
+        102,
+        'naimur45',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Naimur',
+        'Rahman',
+        'naimur.rahman@example.com',
+        '1999-04-20',
+        '2024-02-01',
+        'Active',
+        'default.jpg',
+        1
+    ),
+    (
+        103,
+        'kamal67',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Kamal',
+        'Ahmed',
+        'kamal.ahmed@example.com',
+        '2001-03-10',
+        '2024-03-10',
+        'Not Active',
+        'default.jpg',
+        2
+    ),
+    (
+        104,
+        'aminul89',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Aminul',
+        'Islam',
+        'aminul.islam@example.com',
+        '1998-06-05',
+        '2024-04-05',
+        'Active',
+        'default.jpg',
+        2
+    ),
+    (
+        105,
+        'rafiq12',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Rafiq',
+        'Chowdhury',
+        'rafiq.chowdhury@example.com',
+        '2002-07-25',
+        '2024-05-20',
+        'Active',
+        'default.jpg',
+        3
+    ),
+    (
+        106,
+        'sabina34',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Sabina',
+        'Yasmin',
+        'sabina.yasmin@example.com',
+        '1997-09-10',
+        '2024-06-15',
+        'Not Active',
+        'chillgirl.jpg',
+        3
+    ),
+    (
+        107,
+        'rina56',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Rina',
+        'Akter',
+        'rina.akter@example.com',
+        '2003-02-14',
+        '2024-07-22',
+        'Active',
+        'chillgirl.jpg',
+        1
+    ),
+    (
+        108,
+        'shamima78',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Shamima',
+        'Sultana',
+        'shamima.sultana@example.com',
+        '1996-11-30',
+        '2024-08-10',
+        'Active',
+        'chillgirl.jpg',
+        1
+    ),
+    (
+        109,
+        'nusrat90',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Nusrat',
+        'Jahan',
+        'nusrat.jahan@example.com',
+        '2004-12-05',
+        '2024-09-25',
+        'Active',
+        'chillgirl.jpg',
+        2
+    ),
+    (
+        110,
+        'mala12',
+        '$2y$10$uTE9TPFqYlJYbYJgSWLsheWN4KLW8w3ZJV8O.3/aQnM.PKp/VGVEC',
+        'Mala',
+        'Khatun',
+        'mala.khatun@example.com',
+        '1995-05-19',
+        '2024-10-15',
+        'Not Active',
+        'chillgirl.jpg',
+        3
+    );
+
+SELECT * FROM student;
+>>>>>>> 2a6187c29bb1a17b3594bcde90e88b5cc6e08baf
