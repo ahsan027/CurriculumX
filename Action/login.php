@@ -31,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           	$student_data = $Student->getData();
             $_SESSION['username'] = $student_data['username'];
             $_SESSION['student_id'] = $student_data['student_id'];
+            $_SESSION['usertype'] = $role;
+
             $sm = "logged in!";
             $conn = null;
             Util::redirect("../Student/index.php", "success", $sm);
@@ -47,6 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $instructor_data = $instructor->getData();
             $_SESSION['username'] = $instructor_data['username'];
             $_SESSION['instructor_id'] = $instructor_data['instructor_id'];
+            $_SESSION['usertype'] = $role;
+
             $sm = "logged in!";
             $conn = null;
             Util::redirect("../Instructor/index.php", "success", $sm);

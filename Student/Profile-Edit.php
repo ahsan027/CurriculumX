@@ -15,7 +15,7 @@ if (isset($_SESSION['username']) &&
    }
    // get Certificates
     # Header
-    $title = "EduPulse - Students ";
+    $title = "CurriculumX - Students ";
     include "inc/Header.php";
 
 ?>

@@ -68,10 +68,19 @@
             </div>
 
             <?php
+           
 
              if(isset($_SESSION['username'])) {
-                echo "<a href='logout.php' class='btn btn-primary py-4 px-lg-5 d-none d-lg-block'>LOGOUT<i class='fa fa-arrow-right ms-3'></i></a>";
-            } else {
+                $role = $_SESSION['usertype'];
+                $lower = strtolower($role);
+                $id = $_SESSION[$lower.'_id'];
+
+                if (isset($_SESSION['usertype'])) {
+                    echo "<a href='$role/index.php?$lower._id=$id' class='btn btn-primary py-4 px-lg-5 d-none d-lg-block'>VISIT PROFILE<i class='fa fa-arrow-right ms-3'></i></a>";
+                } else {
+                    echo "<a href='login.php' class='btn btn-primary py-4 px-lg-5 d-none d-lg-block'>LOGIN / SIGNUP<i class='fa fa-arrow-right ms-3'></i></a>";
+                }
+            }else{
                 echo "<a href='login.php' class='btn btn-primary py-4 px-lg-5 d-none d-lg-block'>LOGIN / SIGNUP<i class='fa fa-arrow-right ms-3'></i></a>";
             }
             ?>

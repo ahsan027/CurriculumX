@@ -50,6 +50,7 @@ if (isset($_SESSION['username']) &&
           <p class="card-text"><?=$course["description"]?></p>
           <p class="card-text"><small class="text-body-secondary"><?=$course["created_at"]?></small></p>
           <a href="Course.php?course_id=<?=$course["course_id"]?>" class="btn btn-primary">View Course</a>
+          
         </div>
       </div>
 <?php endwhile; ?>

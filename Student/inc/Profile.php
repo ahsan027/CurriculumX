@@ -1,7 +1,7 @@
 <div class="side-by-side mt-5">
     <div class="l-side shadow p-3 ">
       <div class="profile">
-        <img src="../Upload/profile/<?=$student['profile_img']?>" class="circle" alt="PROFILE IMG" width="250">
+        <img src="<?=$student['profile_img']?>" class="circle" alt="PROFILE IMG" width="250">
         <form action="Action/upload-profile.php" 
               class="text-center"
               enctype="multipart/form-data"
