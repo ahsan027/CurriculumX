@@ -9,9 +9,9 @@
 
 - 👯 GROUP MEMBER (2) **RAIANA FERDOUS DISHA**
 
-- 💬 PROJECT TITLE **CurriculumX**
+- 💬 PROJECT TITLE: **CurriculumX**
 
-- 🌱 TECK STACK **HTML,BOOTSTRAP,JavaScript,PHP,MySql**
+- 🌱 TECK STACK: **HTML,  BOOTSTRAP,  JavaScript,  PHP,  MySql**
 
 - 👨‍💻 All of my projects are available at [https://github.com/ahsan027](https://github.com/ahsan027)
 
