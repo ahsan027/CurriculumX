@@ -73,7 +73,7 @@ if (isset($_SESSION['username']) &&
 ?>
 
                     </p>
-                    <div class="d-flex gap-2 justify-content-center align-items-center">
+                    <div class="d-flex gap-2 justify-content-space-between align-items-center">
                     <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
                     <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger">Delete</button>
 
@@ -125,9 +125,9 @@ if (isset($_SESSION['username']) &&
 
     $conn->close();
 ?></p>
-
-                <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
-                <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger mt-2">Delete</button>
+<div class="d-flex justify-content-center align-items-center gap-3">   <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
+<button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger">Delete</button></div>
+             
             </div>
         </div>
     </div>

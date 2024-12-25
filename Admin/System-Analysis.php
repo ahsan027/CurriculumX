@@ -27,22 +27,22 @@ if($conn->connect_error){
 $query = "SELECT * FROM announcement ORDER BY id DESC LIMIT 1";
 $result = $conn->query($query);
 ?>
-<div class="container">
+<div class="container  ">
   <!-- NavBar -->
   <?php include "inc/NavBar.php"; ?>
   
-  <div class="p-5 shadow">
-    <div class="d-flex align-items-center gap-2">
-        <h4>CurriculumX</h4>
+  <div class="p-5  shadow">
+    <div class="d-flex align-items-center gap-3">
+        <h4 class="text-danger"> Notice Board</h4>
     <a href="announcement.php" class="ml-2">
-        <button class="btn btn-success btn-sm">Upload Announcement</button>
+        <button class="btn btn-success btn-sm mb-1">Upload Announcement</button>
     </a></div>
     <div class="container-xl d-flex justiy-content-center align-items-center">
 <?php if($result->num_rows>0){
     while($info = $result->fetch_assoc()){
-        echo "<div>"; 
+        echo "<div class='text-center p-5 shadow' style='margin: 20px;'>"; 
         echo "<h3>" . $info["fname"] . "</h3>"; 
-        echo "<iframe src='" . $info["file_path"] . "' width='600' height='400'></iframe>"; 
+        echo "<iframe src='" . $info["file_path"] . "' width='1000' height='500'></iframe>"; 
         echo "</div>";
     }
 }
@@ -52,7 +52,7 @@ $result = $conn->query($query);
     
 
     <!-- Display Graphs/Charts for Analysis -->
-    <div class="mb-5" style="max-width: 600px">
+    <div class="mb-5 text-center p-5 shadow" style="max-width: 600px; margin: 20px">
         <h4>Traffic Analysis</h4>
         <!-- Bar Chart -->
         <canvas id="visitedStudentsChart" width="400" height="200"></canvas>
@@ -115,10 +115,10 @@ $result = $conn->query($query);
 
     // Sample data for visited students bar chart
     var visitedStudentsData = {
-        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4','week 5','week 6','week 7','week 8','week 9','week 10','week 11','week 12'],
         datasets: [{
             label: 'Visited Students',
-            data: [20, 30, 25, 15],
+            data: [20, 30, 25, 15,10,5,15,40,10,20,25,30],
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1
@@ -127,7 +127,7 @@ $result = $conn->query($query);
 
     // Create visited students bar chart
     var visitedStudentsChart = new Chart(document.getElementById('visitedStudentsChart'), {
-        type: 'bar',
+        type: 'line',
         data: visitedStudentsData
     });
 </script>
