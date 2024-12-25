@@ -44,8 +44,7 @@ if (isset($_SESSION['username']) &&
     <div class="col-md-9">
         <?php while ($student = $results->fetch_assoc()): ?>
             <div class="card">
-<<<<<<< HEAD
-                <img src=<?php echo $student['profile_img']; ?> class="card-img-top" alt="Card Image">
+                <img width="500px" height="500px" src=<?php echo $student['profile_img']; ?> class="card-img-top" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
                     <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
@@ -74,15 +73,7 @@ if (isset($_SESSION['username']) &&
 ?>
 
                     </p>
-                    <div class="d-flex justify-content-center align-items-center">
-=======
-           
-                <img src="../Upload/profile/<?=$student['profile_img']?>" class="card-img-top" alt="Card Image" width="150">
-                <div class="card-body">
-                    <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
-                    <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
-                    <p class="card-text">Dept: <?= $student['department_id']; ?></p>
->>>>>>> 2a6187c29bb1a17b3594bcde90e88b5cc6e08baf
+                    <div class="d-flex gap-2 justify-content-center align-items-center">
                     <a href="Student.php?student_id=<?=$student["student_id"]?>"><button type="button" class="btn btn-info">Visit Profile</button></a>
                     <button onclick="confirmDelete(<?=$student['student_id']?>)" class="btn btn-danger">Delete</button>
 
@@ -107,7 +98,7 @@ if (isset($_SESSION['username']) &&
 <?php foreach ($students as $student): ?>
     <div class="col-md-4 mb-3">
         <div class="card">
-            <img src="<?= $student['profile_img']; ?>" class="card-img-top" alt="Card Image">
+            <img width="300px" height="350px"  src="<?= $student['profile_img']; ?>" class="card-img-top" alt="Card Image">
             <div class="card-body">
                 <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
                 <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
