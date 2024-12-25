@@ -21,6 +21,9 @@
              <li class="nav-item position-relative">
               <a class="nav-link" href="System-Analysis.php" ><i class="fa fa-line-chart"></i>OverView</a>
             </li>
+            <li class="nav-item position-relative">
+              <a class="nav-link" href="../index.php" ><i class="fa fa-line-chart"></i>Back To Home</a>
+            </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">

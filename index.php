@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,7 +66,16 @@
                 </div>
                 <a href="contact.php" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="login.php" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">LOGIN / SIGNUP<i class="fa fa-arrow-right ms-3"></i></a>
+
+            <?php
+
+             if(isset($_SESSION['username'])) {
+                echo "<a href='logout.php' class='btn btn-primary py-4 px-lg-5 d-none d-lg-block'>LOGOUT<i class='fa fa-arrow-right ms-3'></i></a>";
+            } else {
+                echo "<a href='login.php' class='btn btn-primary py-4 px-lg-5 d-none d-lg-block'>LOGIN / SIGNUP<i class='fa fa-arrow-right ms-3'></i></a>";
+            }
+            ?>
+            
         </div>
     </nav>
     <!-- Navbar End -->
@@ -74,16 +85,25 @@
     <div class="container-fluid p-0 mb-5">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
+                <img class="img-fluid" width="100vw" height="100px" src="img/carousel-1.jpg" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
                                 <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
                                 <h1 class="display-3 text-white animated slideInDown">The Best Online Learning Platform</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                                <p class="fs-5 text-white mb-4 pb-2">Where Innovation meets brilliance</p>
                                 <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Login / Signup</a>
+                                <?php
+                            
+                                if (isset($_SESSION['username'])) {
+                               
+                                    echo "<a href='logout.php' class='btn btn-light py-md-3 px-md-5 animated slideInRight'>Logout</a>";
+                                }else{
+                                    echo "<a href='login.php' class='btn btn-light py-md-3 px-md-5 animated slideInRight'>JOIN NOW</a>";
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>
@@ -97,9 +117,17 @@
                             <div class="col-sm-10 col-lg-8">
                                 <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses</h5>
                                 <h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home</h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus eirmod elitr.</p>
+                                <p class="fs-5 text-white mb-4 pb-2">Where Innovation meets brilliance</p>
                                 <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                                <?php
+                            
+                            if (isset($_SESSION['username'])) {
+                           
+                                echo "<a href='logout.php' class='btn btn-light py-md-3 px-md-5 animated slideInRight'>Logout</a>";
+                            }else{
+                                echo "<a href='login.php' class='btn btn-light py-md-3 px-md-5 animated slideInRight'>JOIN NOW</a>";
+                            }
+                            ?>
                             </div>
                         </div>
                     </div>

@@ -62,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $admin_data = $admin->get();
             $_SESSION['username'] = $admin_data['username'];
             $_SESSION['admin_id'] = $admin_data['admin_id'];
+            $_SESSION['usertype'] = $role;
+
             $sm = "logged in!";
             $conn = null;
             Util::redirect("../Admin/index.php", "success", $sm);
