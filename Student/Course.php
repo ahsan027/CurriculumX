@@ -18,7 +18,7 @@ if (isset($_SESSION['username']) &&
         Util::redirect("Courses.php", "error", $em);
     }
     # Header
-    $title = "EduPulse - Students ";
+    $title = "CurriCulumX - Students ";
     include "inc/Header.php";
 
 ?>

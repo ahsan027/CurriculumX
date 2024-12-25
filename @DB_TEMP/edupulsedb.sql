@@ -599,3 +599,28 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+SELECT * FROM chapter WHERE chapter_id IN (1, 2, 3);
+INSERT INTO chapter (chapter_id, course_id, title, created_at)
+VALUES
+(5, 8, 'Chapter 5', '2023-01-01 13:00:00'),
+(6, 22, 'Chapter 6', '2023-01-01 14:00:00'),
+(7, 22, 'Chapter 7', '2023-01-01 15:00:00');
+
+INSERT INTO chapter (chapter_id, course_id, title, created_at)
+VALUES
+(8, 3, 'Chapter 1', '2023-01-01 09:00:00'), (13, 3, 'Chapter 2', '2023-01-01 10:00:00'), (11, 7, 'Chapter 3', '2023-01-01 11:00:00');
+
+SELECT * FROM chapter;
+INSERT INTO `topic` (`topic_id`, `chapter_id`, `course_id`, `title`, `created_at`)
+VALUES
+(101, 1, 3, 'Introduction to Database Systems', '2023-01-01 10:00:00'),
+(102, 2, 3, 'Advanced SQL Queries', '2023-01-02 11:00:00'),
+(103, 3, 7, 'Introduction to Web Development', '2023-01-03 12:00:00'),
+(104, 4, 8, 'JavaScript Basics', '2023-01-04 13:00:00'),
+(105, 5, 8, 'Advanced JavaScript Techniques', '2023-01-05 14:00:00'),
+(106, 6, 8, 'Web APIs', '2023-01-06 15:00:00'),
+(107, 7, 22, 'Machine Learning Basics', '2023-01-07 16:00:00'),
+(108, 8, 22, 'Deep Learning Fundamentals', '2023-01-08 17:00:00'),
+(109, 9, 22, 'Neural Networks', '2023-01-09 18:00:00'),
+(110, 10, 22, 'Natural Language Processing', '2023-01-10 19:00:00');
