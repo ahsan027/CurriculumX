@@ -56,7 +56,7 @@ include "Config.php";
     			</div>
     			<div class="form-group">
     				<a href="signup.php">Sign Up</a>
-    				<a href="elearning/index.php">| Home</a>
+    				<a href="index.php">| Home</a>
     			</div>
     		</form>
     	</div>
