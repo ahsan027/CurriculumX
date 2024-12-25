@@ -56,18 +56,19 @@
 
         </div>
         <div class="signature">
+            <img src="Assets/img/Signature.png" width="250">
             <p>Signature</p>
-            <img src="Assets/img/Signature.jpeg" width="100">
+
         </div>
     </div>
     <div id="editor"></div>
-<!--     <div class="text-center">
+    <div class="text-center mb-2">
     	<button class="btn btn-success" id="downloadBtn">Download Certificate</button> &nbsp;&nbsp; | &nbsp;&nbsp;
-        <a href="index.php">Back Home</a>
-    </div> -->
+        <a href="Student/index.php"><button class="btn btn-primary">Back Home</button></a>
+    </div>
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/jspdf.min.js"></script>
-<!--     <script>
+    <script>
         var doc = new jsPDF(); 
         var specialElementHandlers = { 
             '#certificate': function (element, renderer) { return true; } 
@@ -76,6 +77,6 @@
         $('#downloadBtn').click(function () { 
             doc.fromHTML($('#certificate').html(), 15, 15, { 'width': 1000, 'elementHandlers': specialElementHandlers }); 
             doc.save('Certificate.pdf'); });
-    </script> -->
+    </script>
 </body>
 </html>
