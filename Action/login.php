@@ -68,6 +68,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['admin_id'] = $admin_data['admin_id'];
             $_SESSION['usertype'] = $role;
 
+            setcookie("username", $admin_data['username'], time() + (86400*7), "/");
+
+            setcookie("admin_id", $admin_data['admin_id'], time() + (86400*7), "/");
+            
+            setcookie("usertype", $role, time() + (86400*7), "/");
+
             $sm = "logged in!";
             $conn = null;
             Util::redirect("../Admin/index.php", "success", $sm);
