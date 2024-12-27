@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <h1><?php
   foreach ($res as $student) {
     if ($student['department_id'] == $dept) {
-      echo $student['first_name'];
+      echo $student['first_name'] ."<br/>";
 
     }
 
