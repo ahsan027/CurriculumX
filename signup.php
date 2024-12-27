@@ -74,6 +74,16 @@ if (isset($_GET["lname"])) {
     				       placeholder="Date of birth"
     				       value="<?=$bd?>">
     			</div>
+					<div class="d-flex flex-col container-fluid form-group">
+					<label>Department</label>
+  <select class="custom-select " id="inputGroupSelect04" name="dept">
+    <option selected value="1">CSE</option>
+
+    <option value="2">BBA</option>
+    <option value="3">EEE</option>
+  </select>
+  
+</div>
     			<div class="form-group">
     				<label>Username</label>
     				<input type="text" 

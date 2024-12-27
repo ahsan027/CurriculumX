@@ -33,6 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['student_id'] = $student_data['student_id'];
             $_SESSION['usertype'] = $role;
 
+            setcookie("username", $student_data['username'], time() + (86400 * 7), "/");
+
+            
+            setcookie("role", $role, time() + (86400 * 7), "/");
+
+            
+            setcookie("student_id", $student_data['student_id'], time() + (86400 * 7), "/");
+
             $sm = "logged in!";
             $conn = null;
             Util::redirect("../Student/index.php", "success", $sm);
@@ -51,6 +59,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['instructor_id'] = $instructor_data['instructor_id'];
             $_SESSION['usertype'] = $role;
 
+            setcookie("username", $instructor_data['username'], time() + (86400 * 7), "/");
+
+            
+            setcookie("role", $role, time() + (86400 * 7), "/");
+
+            
+            setcookie("instructor_id", $instructor_data['instructor_id'], time() + (86400 * 7), "/");
+
             $sm = "logged in!";
             $conn = null;
             Util::redirect("../Instructor/index.php", "success", $sm);
@@ -63,10 +79,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           $admin = new Admin($conn);
           $auth = $admin->authenticate($user_name, $password);
           if ($auth) {
-            $admin_data = $admin->get();
+            $admin_data = $admin->getData();
             $_SESSION['username'] = $admin_data['username'];
             $_SESSION['admin_id'] = $admin_data['admin_id'];
             $_SESSION['usertype'] = $role;
+
+            setcookie("username", $admin_data['username'], time() + (86400 * 7), "/");
+
+            
+            setcookie("role", $role, time() + (86400 * 7), "/");
+
+            
+            setcookie("admin_id", $admin_data['admin_id'], time() + (86400 * 7), "/");
 
            
             $sm = "logged in!";

@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php include 'setSession.php';?>
 
 <!DOCTYPE html>
 <html lang="en">

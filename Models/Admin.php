@@ -67,7 +67,7 @@ class Admin {
        }
    }
 
-   public function get() {
+   public function getData() {
        $data = array(
            'admin_id' => $this->admin_id,
            'username' => $this->username,
