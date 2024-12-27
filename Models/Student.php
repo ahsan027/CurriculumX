@@ -14,6 +14,7 @@ class Student{
    private $date_of_joined;
    private $profile_img;
    
+   
 
 
    function __construct($db_conn){
