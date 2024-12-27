@@ -4,8 +4,14 @@ $username = 'root';
 $password = '';
 
 try {
+  // PDO -> full form -> PHP Data Objects; it is a database access layer providing a uniform method of access to multiple databases.
+
+  // PDO provides a way to work with multiple databases using a unified API, making it easier to write database-agnostic code and enhance security with features like prepared statements.
+
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
 
     // SQL query with placeholders
     $sql = 'SELECT id, username, email FROM users WHERE username = :username AND email = :email';
