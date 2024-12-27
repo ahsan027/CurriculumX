@@ -74,16 +74,7 @@ if (isset($_GET["lname"])) {
     				       placeholder="Date of birth"
     				       value="<?=$bd?>">
     			</div>
-					<div class="d-flex flex-col container-fluid form-group">
-					<label>Department</label>
-  <select class="custom-select " id="inputGroupSelect04" name="dept">
-    <option selected value="1">CSE</option>
-
-    <option value="2">BBA</option>
-    <option value="3">EEE</option>
-  </select>
-  
-</div>
+	
     			<div class="form-group">
     				<label>Username</label>
     				<input type="text" 
@@ -104,9 +95,21 @@ if (isset($_GET["lname"])) {
     				       name="re_password"
     				       placeholder="Confirm Password">
     			</div><br />
+					<div class="d-flex bg-black form-group w-100">
+					<label>Department: </label>
+  <select class="form-control  w-100" id="inputGroupSelect04" name="dept">
+    <option selected value="1">CSE</option>
+
+    <option value="2">BBA</option>
+    <option value="3">EEE</option>
+  </select>
+  
+</div>
+<br />
     			<div class="form-group">
     				<button type="submit">Sign Up</button>
     			</div>
+
     			<div class="form-group">
     				<a href="login.php">Sign In</a>
     				<a href="index.php">| Home</a>

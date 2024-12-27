@@ -15,6 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
    $date_of_birth = Validation::clean($_POST["date_of_birth"]);
    $password      = Validation::clean($_POST["password"]);
 	$re_password   = Validation::clean($_POST["re_password"]);
+	$department_id   = $_POST["dept"];
+	
     
     $data = "fname=".$first_name."&uname=".$username."&email=".$email."&bd=".$date_of_birth."&lname=".$last_name;
 
@@ -43,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
        if($user->is_username_unique($username)){
 	       	// password hash
 	       $password = password_hash($password, PASSWORD_DEFAULT);
-	       $user_data = [$username, $first_name, $last_name, $email, $date_of_birth, $password ];
+	       $user_data = [$username, $first_name, $last_name, $email, $date_of_birth, $password, $department_id];
 	       $res = $user->insert($user_data);
 	       if ($res) {
 	       	$sm = "Successfully registered!";

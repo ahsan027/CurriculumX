@@ -13,6 +13,9 @@ class Student{
    private $date_of_birth;
    private $date_of_joined;
    private $profile_img;
+
+   private $department_id;
+
    
    
 
@@ -24,7 +27,7 @@ class Student{
    
    function insert($data){
        try {
-          $sql = 'INSERT INTO '. $this->table_name.'(username, first_name, last_name, email, date_of_birth, password) VALUES(?,?,?,?,?,?)';
+          $sql = 'INSERT INTO '. $this->table_name.'(username, first_name, last_name, email, date_of_birth, password,department_id) VALUES(?,?,?,?,?,?,?)';
           $stmt = $this->conn->prepare($sql);
           $res = $stmt->execute($data);
           return $res;
@@ -64,7 +67,6 @@ class Student{
           $stmt->bindParam(':l', $num, PDO::PARAM_INT);
            $stmt->execute();
 
-          // $sql = "SELECT * FROM post LIMIT :offset, :l";
           if($stmt->rowCount() > 0) {
                $users = $stmt->fetchAll();
 
@@ -209,6 +211,22 @@ class Student{
           else return 0;
        }catch(PDOException $e){
           return 0;
+       }
+   }
+
+   function getAllStudents(){
+      try {
+          $sql = 'SELECT * FROM '. $this->table_name;
+          $stmt = $this->conn->prepare($sql);
+          $res = $stmt->execute();
+
+          if($stmt->rowCount() > 0) {
+               $users = $stmt->fetchAll();
+
+               return $users;
+         }else return 0;
+       }catch(PDOException $e){
+           return 0;
        }
    }
    
