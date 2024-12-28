@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
 
- 
+ <div class="container">
     	<div class="form-holder">
         <form method="POST" action="">
         <div class="d-flex bg-black form-group w-100">
@@ -56,6 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
     	
     </div>
-  
+    </div>
 </body>
 </html>
