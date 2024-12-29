@@ -20,8 +20,8 @@ try {
     $stmt = $pdo->prepare($sql);
 
     // Data to bind
-    $username = 'john_doe';
-    $email = 'john@example.com';
+    $username = htmlspecialchars($_POST['username']);
+    $email = htmlspecialchars($_POST['email']);
 
     // Bind the parameters
     $stmt->bindParam(':username', $username);

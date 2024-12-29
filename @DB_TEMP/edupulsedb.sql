@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2024 at 06:13 PM
+-- Generation Time: Dec 28, 2024 at 02:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -109,9 +109,15 @@ INSERT INTO `chapter` (`chapter_id`, `course_id`, `title`, `created_at`) VALUES
 (2, 1, 'Chapter-2', '2024-01-15'),
 (3, 1, 'Chapter-3', '2024-01-15'),
 (4, 1, 'Chapter-4', '2024-01-15'),
+(5, 8, 'Chapter 5', '2023-01-01'),
+(6, 22, 'Chapter 6', '2023-01-01'),
+(7, 22, 'Chapter 7', '2023-01-01'),
+(8, 3, 'Chapter 1', '2023-01-01'),
 (9, 19, 'Chapter-1', '2024-02-03'),
 (10, 19, 'Chapter-2', '2024-02-03'),
-(12, 19, 'Chapter-3', '2024-02-03');
+(11, 7, 'Chapter 3', '2023-01-01'),
+(12, 19, 'Chapter-3', '2024-02-03'),
+(13, 3, 'Chapter 2', '2023-01-01');
 
 -- --------------------------------------------------------
 
@@ -245,7 +251,8 @@ CREATE TABLE `enrolled_student` (
 INSERT INTO `enrolled_student` (`enrolled_id`, `course_id`, `student_id`, `enrolled_at`) VALUES
 (10, 1, 1, '2024-02-03'),
 (11, 19, 1, '2024-02-03'),
-(12, 19, 2, '2024-02-03');
+(12, 19, 2, '2024-02-03'),
+(13, 7, 1, '2024-12-26');
 
 -- --------------------------------------------------------
 
@@ -273,7 +280,7 @@ CREATE TABLE `instructor` (
 INSERT INTO `instructor` (`instructor_id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `date_of_joined`, `status`, `profile_img`) VALUES
 (1, 'anika002', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Anika', 'Tahsin', 'anikatahsin@bracu.ac.bd', '1998-07-05', '2024-01-15', 'Not Active', 'Anika.jpg'),
 (2, 'arafat001', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Arafat', 'Biswas', 'arafat.haque.biswas@g.bracu.ac.bd', '2014-01-01', '2022-07-12', 'Not Active', 'Arafat.jpg'),
-(3, 'badhon003', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Badhon', 'Nandi', 'john@jo.com', '2024-01-19', '0000-00-00', 'Not Active', 'default.jpg');
+(3, 'badhon003', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Badhon', 'Nandi', 'badhon@bracu.com', '2024-01-19', '0000-00-00', 'Not Active', 'badhon003676c167feb1053.88824413.jpg');
 
 -- --------------------------------------------------------
 
@@ -300,7 +307,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `date_of_joined`, `status`, `profile_img`, `department_id`) VALUES
-(1, 'johnc', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'John', 'Chena', 'johnChena.wwe@gmail.com', '2000-05-06', '2024-01-14', 'Active', '../upload/profile/default.jpg', 3),
+(1, 'johnc', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'John', 'Chena', 'johnChena.wwe@gmail.com', '2000-05-06', '2024-01-14', 'Active', '../upload/profile/johnc.jpg', 3),
 (2, 'sunny', '$2y$10$Zye7SP.JPXk6y9TVrwgmuOzUiTRwsvjHhsvPVwsleDUgJS8EjfOCe', 'Sunny', 'Deol', 'sunny@gmail.com', '1998-05-12', '2024-01-14', 'Active', '../upload/profile/chillgirl.jpg', 1),
 (101, 'arif23', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Arif', 'Hossain', 'arif.hossain@example.com', '2000-01-15', '2024-01-15', 'Active', '../upload/profile/default.jpg', 1),
 (102, 'naimur45', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Naimur', 'Rahman', 'naimur.rahman@example.com', '1999-04-20', '2024-02-01', 'Active', '../upload/profile/default.jpg', 1),
@@ -311,7 +318,8 @@ INSERT INTO `student` (`student_id`, `username`, `password`, `first_name`, `last
 (107, 'rina56', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Rina', 'Akter', 'rina.akter@example.com', '2003-02-14', '2024-07-22', 'Active', '../upload/profile/chillgirl.jpg', 2),
 (108, 'shamima78', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Shamima', 'Sultana', 'shamima.sultana@example.com', '1996-11-30', '2024-08-10', 'Active', '../upload/profile/chillgirl.jpg', 3),
 (109, 'nusrat90', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Nusrat', 'Jahan', 'nusrat.jahan@example.com', '2004-12-05', '2024-09-25', 'Active', '../upload/profile/chillgirl.jpg', 2),
-(110, 'mala12', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Mala', 'Khatun', 'mala.khatun@example.com', '1995-05-19', '2024-10-15', 'Not Active', '../upload/profile/chillgirl.jpg', 3);
+(110, 'mala12', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Mala', 'Khatun', 'mala.khatun@example.com', '1995-05-19', '2024-10-15', 'Not Active', '../upload/profile/chillgirl.jpg', 3),
+(654348, 'rafsan07', '$2y$10$WEwR3hERHM.BLmWQYCu1OOqDVmyN0dtlWk9LV3mLsKre9f3xlFdj2', 'Rafsan', 'The Motu', 'rafsanthemotubhai@gmail.com', '2015-03-19', '2024-12-28', 'Active', '../upload/profile/rafsan.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -333,7 +341,8 @@ CREATE TABLE `student_progress` (
 INSERT INTO `student_progress` (`progress_id`, `course_id`, `student_id`, `progress`) VALUES
 (13, 1, 1, 100),
 (14, 19, 1, 100),
-(15, 19, 2, 100);
+(15, 19, 2, 100),
+(16, 7, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -363,7 +372,17 @@ INSERT INTO `topic` (`topic_id`, `chapter_id`, `course_id`, `title`, `created_at
 (16, 1, 1, 'Data Science Introduction', '2024-02-03'),
 (17, 2, 1, 'Data Science Functions', '2024-02-03'),
 (18, 3, 1, 'Linear Functions', '2024-02-03'),
-(19, 4, 1, 'Standard Deviation', '2024-02-03');
+(19, 4, 1, 'Standard Deviation', '2024-02-03'),
+(101, 1, 3, 'Introduction to Database Systems', '2023-01-01'),
+(102, 2, 3, 'Advanced SQL Queries', '2023-01-02'),
+(103, 3, 7, 'Introduction to Web Development', '2023-01-03'),
+(104, 4, 8, 'JavaScript Basics', '2023-01-04'),
+(105, 5, 8, 'Advanced JavaScript Techniques', '2023-01-05'),
+(106, 6, 8, 'Web APIs', '2023-01-06'),
+(107, 7, 22, 'Machine Learning Basics', '2023-01-07'),
+(108, 8, 22, 'Deep Learning Fundamentals', '2023-01-08'),
+(109, 9, 22, 'Neural Networks', '2023-01-09'),
+(110, 10, 22, 'Natural Language Processing', '2023-01-10');
 
 --
 -- Indexes for dumped tables
@@ -481,7 +500,7 @@ ALTER TABLE `certificate`
 -- AUTO_INCREMENT for table `chapter`
 --
 ALTER TABLE `chapter`
-  MODIFY `chapter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `chapter_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `content`
@@ -511,7 +530,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `enrolled_student`
 --
 ALTER TABLE `enrolled_student`
-  MODIFY `enrolled_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `enrolled_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `instructor`
@@ -523,19 +542,19 @@ ALTER TABLE `instructor`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=654347;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=654349;
 
 --
 -- AUTO_INCREMENT for table `student_progress`
 --
 ALTER TABLE `student_progress`
-  MODIFY `progress_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `progress_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `topic`
 --
 ALTER TABLE `topic`
-  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- Constraints for dumped tables
@@ -599,28 +618,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-SELECT * FROM chapter WHERE chapter_id IN (1, 2, 3);
-INSERT INTO chapter (chapter_id, course_id, title, created_at)
-VALUES
-(5, 8, 'Chapter 5', '2023-01-01 13:00:00'),
-(6, 22, 'Chapter 6', '2023-01-01 14:00:00'),
-(7, 22, 'Chapter 7', '2023-01-01 15:00:00');
-
-INSERT INTO chapter (chapter_id, course_id, title, created_at)
-VALUES
-(8, 3, 'Chapter 1', '2023-01-01 09:00:00'), (13, 3, 'Chapter 2', '2023-01-01 10:00:00'), (11, 7, 'Chapter 3', '2023-01-01 11:00:00');
-
-SELECT * FROM chapter;
-INSERT INTO `topic` (`topic_id`, `chapter_id`, `course_id`, `title`, `created_at`)
-VALUES
-(101, 1, 3, 'Introduction to Database Systems', '2023-01-01 10:00:00'),
-(102, 2, 3, 'Advanced SQL Queries', '2023-01-02 11:00:00'),
-(103, 3, 7, 'Introduction to Web Development', '2023-01-03 12:00:00'),
-(104, 4, 8, 'JavaScript Basics', '2023-01-04 13:00:00'),
-(105, 5, 8, 'Advanced JavaScript Techniques', '2023-01-05 14:00:00'),
-(106, 6, 8, 'Web APIs', '2023-01-06 15:00:00'),
-(107, 7, 22, 'Machine Learning Basics', '2023-01-07 16:00:00'),
-(108, 8, 22, 'Deep Learning Fundamentals', '2023-01-08 17:00:00'),
-(109, 9, 22, 'Neural Networks', '2023-01-09 18:00:00'),
-(110, 10, 22, 'Natural Language Processing', '2023-01-10 19:00:00');
