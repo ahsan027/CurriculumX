@@ -35,6 +35,7 @@ if (isset($_SESSION['username']) &&
 
   <div class="mb-4 d-flex justify-content-center align-items-center">
     <?php include 'inc/SearchBox.php' ?>
+  
   </div>
 
   <?php if(isset($_GET['search'])){?>
