@@ -28,7 +28,7 @@ if (isset($_SESSION['username']) &&
       <!-- <h4>Student Details</h4><br> circle -->
       <div class="profile text-center">
         <img  class="circle"
-              src="<?=$instructor['profile_img']?>" alt="PROFILE IMG" width="150">
+              src="../Upload/profile/<?=$instructor['profile_img']?>" alt="PROFILE IMG" width="150">
               <h5 class="p-2"><?=$instructor['first_name']?> <?=$instructor['last_name']?></h5>
            
       </div><br><br>

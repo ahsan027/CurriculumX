@@ -44,7 +44,7 @@ if (isset($_SESSION['username']) &&
           <li class="list-group-item">Joined at: <?=$student['date_of_joined']?></li>
           <li class="list-group-item">Department: <?php 
     $id = $student["student_id"];
-    $conn = new mysqli("localhost", "root", "", "edupulsedb");
+    $conn = new mysqli("localhost", "root", "", "curriculumx");
 
     // Check connection
     if ($conn->connect_error) {

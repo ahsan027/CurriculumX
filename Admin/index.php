@@ -52,7 +52,7 @@ if (isset($_SESSION['username']) &&
                     <p class="card-text">Dept: 
      <?php 
     $id = $student["student_id"];
-    $conn = new mysqli("localhost", "root", "", "edupulsedb");
+    $conn = new mysqli("localhost", "root", "", "curriculumx");
 
     // Check connection
     if ($conn->connect_error) {
@@ -107,7 +107,7 @@ if (isset($_SESSION['username']) &&
                 <p class="card-text">Dept: 
                   <?php 
     $id = $student["student_id"];
-    $conn = new mysqli("localhost", "root", "", "edupulsedb");
+    $conn = new mysqli("localhost", "root", "", "curriculumx");
 
     // Check connection
     if ($conn->connect_error) {

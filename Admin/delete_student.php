@@ -5,7 +5,7 @@ include '../Controller/Admin/Student.php';
 $host = "localhost";
 $username = 'root';
 $password = "";
-$db = "edupulsedb";
+$db = "curriculumx";
 $conn = new mysqli($host, $username, $password, $db); // Check connection 
 
 if ($conn->connect_error) { 

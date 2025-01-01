@@ -1,7 +1,7 @@
 <?php 
   # Header
   $course = $arrayName = array('name' => "Intro to Python");
-  $title = $course['name']." - EduPulse";
+  $title = $course['name']." - Curriculumx";
   include "inc/Header.php";
 ?>
 <div class="container">

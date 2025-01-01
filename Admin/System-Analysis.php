@@ -16,7 +16,7 @@ if (isset($_SESSION['username']) &&
     include "inc/Header.php";
 
 
-$conn = new mysqli("localhost","root","","edupulsedb");
+$conn = new mysqli("localhost","root","","curriculumx");
 
 
 

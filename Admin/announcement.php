@@ -1,6 +1,6 @@
 <?php 
 $em ="";
-$conn = new mysqli("localhost","root","","edupulsedb");
+$conn = new mysqli("localhost","root","","curriculumx");
 
 if($conn->error){
     die("Connection Failed");
