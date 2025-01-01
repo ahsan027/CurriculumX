@@ -48,17 +48,6 @@ try{
            
 
         } ?>
-           
-
-
-
-
-    
-
-        
-        
-        
-        <!-- Add more cards as needed -->
     </div>
 </body>
 </html>
