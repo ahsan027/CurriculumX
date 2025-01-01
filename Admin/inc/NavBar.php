@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-      <img src="../assets/img/LogoW.png" alt="Online learning system" width="50" height="40">
+      <img src="../assets/img/LogoW.png" alt="" width="50" height="40">
       Admin
     </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
