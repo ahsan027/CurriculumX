@@ -2,7 +2,7 @@
 
 class Database {
 	private $host = "localhost";
-	private $dbName = "EduPulseDB";
+	private $dbName = "curriculumx";
 	private $uName = "root";
 	private $pass = "";
 	private $conn;
