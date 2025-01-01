@@ -3,11 +3,15 @@ package Java;
 public class spring {
   public static void main(String[] args) {
 
-    Myname obj = new Myname("Rahul", 20);
-    System.out.println(obj.name);
+    // Myname obj = new Myname("Rahul", 20);
+    // System.out.println(obj.name);
 
-    Info obj1 = new Info("payel", 103, "Female");
-    System.out.println(obj1.getgender());
+    // Info obj1 = new Info("payel", 103, "Female");
+    // System.out.println(obj1.getgender());
+    int a = 10;
+
+    System.out.println((float) a);
+    System.out.println((double) a);
 
   }
 }

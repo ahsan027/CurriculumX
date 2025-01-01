@@ -1,0 +1,99 @@
+body {
+  width: 100vw;
+  height:100vh;
+
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin-bottom: 10px;
+  /* padding: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  margin-left: 4rem;
+  margin-top: 5rem;
+  width: 100%;
+height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  gap: 20px;
+}
+
+.styled-button { 
+  display: flex; 
+  align-items: center; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  color: #fff; 
+  background-color: #007BFF; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+  position: absolute;  
+  left: 2.7rem;  
+  top: 0.7rem; 
+  /* margin-bottom: 2rem;  */
+} 
+.styled-button:hover { background-color: #0056b3; } 
+.styled-button .arrow { margin-right: 10px; font-size: 18px}
+.card {
+  width: 30%;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden; /* Ensure the thumbnail and content are contained */
+}
+
+.thumbnail {
+  height: 40%; /* Thumbnail takes up half the height of the card */
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the thumbnail area without distortion */
+  border-radius: 8px 8px 0 0; /* Rounded corners only at the top */
+}
+
+.card-content {
+  padding: 10px;
+  height: 50%; /* Content takes up the other half of the card */
+  box-sizing: border-box; /* Ensure padding is included in the height calculation */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h2 {
+  color: #444;
+  margin-top: 10px;
+}
+
+.card p {
+  color: #666;
+}
+
+.card a {
+  display: inline-block;
+  
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007BFF;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease-in-out;
+  margin-bottom: 100px;
+}
+
+.card a:hover {
+  background-color: #0056b3;
+}

@@ -448,3 +448,50 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+-- contents
+-- topic id, topic title
+-- video link
+-- course_id foregin key
+-- uploaded_at
+
+CREATE TABLE contents(
+  topic_id int(5) AUTO_INCREMENT PRIMARY KEY,
+  topic_title varchar(255) NOT NULL,
+  thumbnail varchar(255) NOT NULL,
+  course_id int(11) NOT NULL,
+  uploaded_at timestamp NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (course_id) REFERENCES course(course_id)
+);
+
+DROP TABLE contents;
+
+ALTER TABLE contents ADD COLUMN descriptions varchar(255);
+
+ALTER TABLE contents MODIFY thumbnail varchar(255);
+
+
+
+INSERT INTO contents (topic_title, thumbnail, course_id, descriptions)
+VALUES 
+('Introduction to Course 1', 'thumbnail1.jpg', 1, 'Overview of Course 1 basics and fundamentals.'),
+('Advanced Topics in Course 1', 'thumbnail2.jpg', 1, 'In-depth exploration of advanced topics in Course 1.'),
+('Course 3 Overview', 'thumbnail3.jpg', 3, 'Comprehensive introduction to Course 3 key concepts.'),
+('Course 3 Deep Dive', 'thumbnail4.jpg', 3, 'Detailed analysis of core topics in Course 3.'),
+('Course 7 Basics', 'thumbnail5.jpg', 7, 'Fundamental principles and basics of Course 7.'),
+('Course 7 Advanced Concepts', 'thumbnail6.jpg', 7, 'Advanced concepts and topics in Course 7.'),
+('Getting Started with Course 8', 'thumbnail7.jpg', 8, 'Introduction and getting started with Course 8.'),
+('Course 8 Intermediate Topics', 'thumbnail8.jpg', 8, 'Intermediate topics and concepts in Course 8.'),
+('Course 13 Introduction', 'thumbnail9.jpg', 13, 'Introduction to Course 13 fundamental principles.'),
+('Course 13 in Detail', 'thumbnail10.jpg', 13, 'Detailed study of topics in Course 13.'),
+('Course 19 Essentials', 'thumbnail11.jpg', 19, 'Essential concepts and principles of Course 19.'),
+('Course 19 Mastery', 'thumbnail12.jpg', 19, 'Mastery of advanced topics in Course 19.'),
+('Course 22 Basics', 'thumbnail13.jpg', 22, 'Basic introduction to the principles of Course 22.'),
+('Course 22 Advanced Topics', 'thumbnail14.jpg', 22, 'Exploration of advanced topics in Course 22.');
+
+
+INSERT INTO contents (topic_title, thumbnail, course_id, descriptions) VALUES ('Course 1 Overview', 'thumbnail17.jpg', 1, 'A brief introduction to the objectives of Course 1.'), 
+('Course 1 Key Learnings', 'thumbnail18.jpg', 1, 'Key takeaways and learnings from Course 1.'),
+('Exploring Course 3', 'thumbnail19.jpg', 3, 'A detailed exploration of Course 3 topics.');

@@ -1,62 +1,64 @@
+<?php 
+$id = $_GET["course_id"];
+$dns = "mysql:host=localhost;dbname=curriculumx";
+
+$pdo = new PDO($dns, 'root', '');
+
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+try{
+    $query = "SELECT * FROM contents WHERE course_id = :id";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
+
+
+
+}catch(PDOException $e){
+    echo 'Connection failed: ' . $e->getMessage();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Videos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Topics</title>
+    <link rel="stylesheet" href="course.css">
 </head>
 <body>
-    <style>body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+<a href="courses.php"><button class="styled-button"> <span class="arrow">←</span> Dash Board </button></a>
 
-.container {
-    text-align: center;
-}
-
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.video-box {
-    width: 560px;
-    height: auto;
-    margin: 10px auto;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-video {
-    width: 100%;
-    height: auto;
-}
-</style>
     <div class="container">
-        <h1>My Videos</h1>
-        <div class="video-box">
-            <video controls>
-                <source src="your-video-file.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class="video-box">
-            <video controls>
-                <source src="another-video-file.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <!-- Add more video boxes as needed -->
+        <?php foreach($result as $r){
+           echo "<div class='card'>";
+           echo "    <div class='thumbnail'>";
+           echo "        <img src='thumbnail1.jpg' alt='Thumbnail 1'>";
+           echo "    </div>";
+           echo "    <div class='card-content'>";
+           echo "        <h2>".$r['topic_title']."</h2>";
+           echo "        <p>This is a description of the first topic. It provides a brief overview of what this topic is about.</p>";
+           echo "        <a href='https://example.com/topic1' target='_blank'>Watch Video</a>";
+           echo "    </div>";
+           echo "</div>";
+           
+
+        } ?>
+           
+
+
+
+
+    
+
+        
+        
+        
+        <!-- Add more cards as needed -->
     </div>
 </body>
 </html>
