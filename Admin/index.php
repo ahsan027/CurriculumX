@@ -44,7 +44,7 @@ if (isset($_SESSION['username']) &&
     <div class="col-md-9">
         <?php while ($student = $results->fetch_assoc()): ?>
             <div class="card">
-                <img width="500px" height="500px" src=<?php echo $student['profile_img']; ?> class="card-img-top" alt="Card Image">
+                <img width="500px" height="500px" src="../upload/profile/<?= $student['profile_img'] ?>" class="card-img-top" alt="Card Image">
                 <div class="card-body">
                     <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
                     <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
@@ -98,9 +98,10 @@ if (isset($_SESSION['username']) &&
 <?php foreach ($students as $student): ?>
     <div class="col-md-4 mb-3">
         <div class="card">
-            <img width="300px" height="350px"  src="<?= $student['profile_img']; ?>" class="card-img-top" alt="Card Image">
+            <img width="300px" height="350px"  src="../upload/profile/<?= $student['profile_img'] ?>" class="card-img-top" alt="Card Image">
             <div class="card-body">
                 <h5 class="card-title"><?=$student["first_name"]?> <?=$student["last_name"]?></h5>
+            
                 <p class="card-text">Student ID:  <?=$student["student_id"]?></p>
                 <p class="card-text">Dept: 
                   <?php 

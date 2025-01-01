@@ -30,7 +30,7 @@ if (isset($_SESSION['username']) &&
       <div class="profile text-center">
 
         <img  class="rounded float-left"
-              src="<?=$student['profile_img']?>" alt="PROFILE IMG" width="150">
+              src="../upload/profile/<?=$student['profile_img']?>" alt="PROFILE IMG" width="150">
 
         
 
