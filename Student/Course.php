@@ -37,10 +37,10 @@ if (isset($_SESSION['username']) &&
       </p>
     </div>
     <ul class="list-group list-group-flush">
-      <?php if ($course['status'] === "public") { ?>
+      <?php if ($course['status'] === "Public") { ?>
         <li class="list-group-item">Status : <mark style="background-color:aquamarine"> <?= $course['status'] ?></mark> </li>
        <?php } else { ?>
-        <li class="list-group-item">Status : <mark style="background-color: #f8d7da;">Private</mark></li>
+        <li class="list-group-item">Status : <mark style="background-color: #f8d7da;"> <?= $course['status'] ?></mark></li>
        <?php } ?>
     
        <?php

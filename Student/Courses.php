@@ -85,10 +85,23 @@ if (isset($_SESSION['username']) &&
           echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>View Course</a>";
       
         }else{
-          echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
+       
+          echo " <form action=action/enroll.php method=GET>";
+          echo "<button class='btn btn-primary' type=submit name=btnClick>Enroll</button>";
+          // echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
+
+    
+          echo "</form>";
    
         }
-  
+        
+    ?>
+    <?php
+    if (isset($_GET['btnClick'])) {
+        echo "<p>Button clicked with GET: " . htmlspecialchars($_GET['btnClick']) . "</p>";
+    }
+    ?>
+    
       ?>        
         </div>
       </div>
@@ -116,19 +129,25 @@ if (isset($_SESSION['username']) &&
           <p class="card-text"><?=$course["description"]?></p>
           <p class="card-text"><small class="text-body-secondary"><?=$course["created_at"]?></small></p>
 
-      
           <?php
         
-            if (in_array($course['course_id'],$resArr)) {
-            
-              echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>View Course</a>";
-          
-            }else{
-              echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
-       
-            }
+        if (in_array($course['course_id'],$resArr)) {
+        
+          echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-success'>View Course</a>";
       
-          ?>
+        }else{
+       
+          echo "<form action=action/enroll.php method=get>";
+echo"    <button class='btn btn-primary' type=submit name=btnClick value=". $course['course_id'].">Enroll Course</button>";
+            echo "</form>";
+          // echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
+
+    
+          echo "</form>";
+   
+        }
+        
+    ?>
         </div>
       </div>
     </div>
