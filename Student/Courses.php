@@ -89,10 +89,7 @@ if (isset($_SESSION['username']) &&
    
         }
   
-      ?>
-      
-
-          
+      ?>        
         </div>
       </div>
 <?php endwhile; ?>
