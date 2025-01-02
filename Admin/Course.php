@@ -41,7 +41,7 @@ try{
            echo "    </div>";
            echo "    <div class='card-content'>";
            echo "        <h2>".$r['topic_title']."</h2>";
-           echo "        <p>This is a description of the first topic. It provides a brief overview of what this topic is about.</p>";
+           echo "        <p>". $r['descriptions']."</p>";
            echo "        <a href='https://example.com/topic1' target='_blank'>Watch Video</a>";
            echo "    </div>";
            echo "</div>";
