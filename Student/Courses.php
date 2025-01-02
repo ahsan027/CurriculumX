@@ -1,6 +1,8 @@
 <?php 
 session_start();
 include "../Utils/Util.php";
+
+
 if (isset($_SESSION['username']) &&
     isset($_SESSION['student_id'])) {
 
@@ -20,9 +22,35 @@ if (isset($_SESSION['username']) &&
     }
     if($page != 1) $offset = ($page-1) * $row_num;
     $courses = getSomeCourses($offset, $row_num);
+  
+  $stuId = $_SESSION['student_id'];
+
+  $dns = "mysql:host=localhost;dbname=curriculumx";
+  $c = new PDO($dns, 'root', '');
+  $c->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  try{
+    $stmt = $c->prepare("SELECT Course_id FROM enrolled_student WHERE student_id = $stuId");
+    $stmt->execute();
+    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+ 
+
+    $resArr = [];
+
+    for($i = 0; $i < count($res); $i++){
+      $resArr[] = $res[$i]['Course_id'];
+     
+     
+    }
+  
+  
+  
+  } catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+  }
+
 
     # Header
-    $title = "EduPulse - Students ";
+    $title = "CurriculumX - Students ";
     include "inc/Header.php";
 
 ?>
@@ -46,10 +74,24 @@ if (isset($_SESSION['username']) &&
       </div>
       <div class="col-md-8">
         <div class="card-body">
+        
           <h5 class="card-title"><?=$course["title"]?></h5>
           <p class="card-text"><?=$course["description"]?></p>
           <p class="card-text"><small class="text-body-secondary"><?=$course["created_at"]?></small></p>
-          <a href="Course.php?course_id=<?=$course["course_id"]?>" class="btn btn-primary">View Course</a>
+          <?php
+        
+        if (in_array($course['course_id'],$resArr)) {
+        
+          echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>View Course</a>";
+      
+        }else{
+          echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
+   
+        }
+  
+      ?>
+      
+
           
         </div>
       </div>
@@ -58,8 +100,9 @@ if (isset($_SESSION['username']) &&
 
   <div class="course-list">
 
-    <?php foreach ($courses as $course) {?>
     
+    <?php foreach ($courses as $course) {?>
+
     <div class="card mb-3 course">
     <div class="row g-0">
       <div class="col-md-4">
@@ -70,10 +113,25 @@ if (isset($_SESSION['username']) &&
       </div>
       <div class="col-md-8">
         <div class="card-body">
+ 
+
           <h5 class="card-title"><?=$course["title"]?></h5>
           <p class="card-text"><?=$course["description"]?></p>
           <p class="card-text"><small class="text-body-secondary"><?=$course["created_at"]?></small></p>
-          <a href="Course.php?course_id=<?=$course["course_id"]?>" class="btn btn-primary">View Course</a>
+
+      
+          <?php
+        
+            if (in_array($course['course_id'],$resArr)) {
+            
+              echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>View Course</a>";
+          
+            }else{
+              echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
+       
+            }
+      
+          ?>
         </div>
       </div>
     </div>

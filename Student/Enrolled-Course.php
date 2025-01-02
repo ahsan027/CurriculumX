@@ -1,18 +1,29 @@
 <?php 
 session_start();
 include "../Utils/Util.php";
+include "../Database.php";
 if (isset($_SESSION['username']) &&
     isset($_SESSION['student_id'])) {
 
-    include "../Controller/Student/Course.php";
-    include "../Controller/Student/EnrolledStudent.php";
-    
-    $student_id = $_SESSION['student_id'];
-    $courses = getEnrolledCourses($student_id);
-    $row_count =  $courses[0]['count'];
+      $id = $_SESSION['student_id'];
+
+      $database = new Database();
+      $conn = $database->connect();
+
+
+  $query = "SELECT * FROM enrolled_student e INNER JOIN course c ON c.course_id = e.course_id WHERE e.student_id=:id";
+
+  $stmt = $conn->prepare($query);
+  $stmt->bindParam(':id', $id);
+  $stmt->execute();
+  $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  // print_r($courses);
+  $len = count($courses);
+
+
 
     # Header
-    $title = "EduPulse - Students ";
+    $title = "Curriculum - Students ";
     include "inc/Header.php";
     
 ?>
@@ -20,32 +31,36 @@ if (isset($_SESSION['username']) &&
   <!-- NavBar -->
   <?php include "inc/NavBar.php"; ?>
 
-  <?php if ($row_count > 0) { ?>
-  <h4 class="course-list-title">All Enrolled Courses (<?=$row_count?>)</h4>
+ <?php if($len>0){ ?>
+  <h4 class="course-list-title">All Enrolled Courses ( <?= $len ?>)</h4>
   <div class="course-list">
 
-    <?php 
-      for ($i=1; $i <= $row_count; $i++) { ?>
-    
+  <?php foreach($courses as $course): ?>
+ 
     <div class="card mb-3 course">
+
     <div class="row g-0">
+
       <div class="col-md-4">
-        <img src="../Upload/thumbnail/<?=$courses[$i]["cover"]?>" 
+        <img src="../Upload/thumbnail/<?= $course['cover'] ?>" 
              class="img-fluid rounded-start" 
              alt="course"
              width="500">
       </div>
+     
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title"><?=$courses[$i]["title"]?></h5>
-          <p class="card-text"><?=$courses[$i]["description"]?></p>
-          <p class="card-text"><small class="text-body-secondary"><?=$courses[$i]["created_at"]?></small></p>
-          <a href="Courses-Enrolled.php?course_id=<?=$courses[$i]["course_id"]?>" class="btn btn-primary">View Course</a>
+          <h5 class="card-title"><?php echo $course['title']?></h5>
+          <p class="card-text"><?= $course['description'] ?></p>
+          <p class="card-text"><small class="text-body-secondary"><?= $course['created_at'] ?></small></p>
+          <a href="Courses-Enrolled.php?course_id=<?= $course['course_id'] ?>" class="btn btn-primary">View Course</a>
         </div>
       </div>
+      
     </div>
   </div>
-  <?php } ?>
+  <?php endforeach; ?>
+  
   </div>
 <?php }else{ ?>
   <div class="alert alert-info" role="alert">

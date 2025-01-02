@@ -4,57 +4,8 @@ include "../Utils/Util.php";
 include "../Utils/Validation.php";
 if (isset($_SESSION['username']) &&
     isset($_SESSION['student_id'])) {
-    
-   if (isset($_GET['course_id'])) {
-      include "../Controller/Student/EnrolledStudent.php";
-      include "../Controller/Student/Course.php";
-      $course_id = Validation::clean($_GET['course_id']);
-      $course_id = Validation::clean($_GET['course_id']);
-      $course_id = Validation::clean($_GET['course_id']);
-      
-    }else{
-        $em = "Invalid course id ";
-        Util::redirect("../Courses.php", "error", $em);
-    }
 
-    
-      $chapters = getFirstChapterByCourseId($course_id);
-
-      $topics = getFirstTopicByCourseId($course_id);
-
-       $_chapter_id = $chapters['chapter_id'];
-       $_topic_id = $topics['topic_id'];
-
-     if(isset($_GET['chapter_id'])) {
-      $_chapter_id = Validation::clean($_GET['chapter_id']);
-     }
-     if(isset($_GET['topic_id'])) {
-      $_topic_id = Validation::clean($_GET['topic_id']);
-     }
-
-     $psag_exes = isPageExes($course_id, $_chapter_id, $_topic_id);
-     if($psag_exes == 0){
-         Util::redirect("../404.php", "error", "404");
-     }
-
-    $course = getById($course_id, $_chapter_id, $_topic_id);
-
-    $student_id = $_SESSION['student_id'];
-    $data = array($course_id, $student_id);
-    $res = check_enrolled_student($data);
-
-    if ($res == 0) {
-      $em = "Invalid course id ";
-      Util::redirect("Courses.php", "course_id", $course_id);
-    }
-    $progress = getStudentProgress($course_id, $student_id);
-    if ($progress >= 100) {
-      $progress = 100;
-    }
-
-    $all_chapters = count($course['chapters']);
-    $chapter_val = (1 / $all_chapters) * 100;
-
+      $course_id =  $_GET['course_id'];
 
     # Header
     $title = "CurriculumX - ".$course['course']['title'];

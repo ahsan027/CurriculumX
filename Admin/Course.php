@@ -37,12 +37,14 @@ try{
         <?php foreach($result as $r){
            echo "<div class='card'>";
            echo "    <div class='thumbnail'>";
-           echo "        <img src='thumbnail1.jpg' alt='Thumbnail 1'>";
+           echo "        <img src='thumbnails/t1.jpg' alt='Thumbnail 1'>";
            echo "    </div>";
            echo "    <div class='card-content'>";
            echo "        <h2>".$r['topic_title']."</h2>";
            echo "        <p>". $r['descriptions']."</p>";
-           echo "        <a href='https://example.com/topic1' target='_blank'>Watch Video</a>";
+           echo "        <p>"."Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium nemo quasi voluptatem repudiandae delectus impedit suscipit sint a, doloremque officiis voluptatibus dolorem excepturi quae numquam sequi. Amet rerum soluta nihil magnam beatae accusantium, laborum numquam ullam quibusdam odit, nam accusamus voluptate fuga autem culpa quae molestias sequi, eum dolore illo."."</p>";
+
+           echo "        <a href='https://www.youtube.com/watch?v=eP1cSKcOjyM&list=PLib4rFadvfrckeiUjBjYWnxtyUmW5-X8r' target='_blank'>Watch Video</a>";
            echo "    </div>";
            echo "</div>";
            
