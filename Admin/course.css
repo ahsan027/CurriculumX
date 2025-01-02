@@ -5,7 +5,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin-bottom: 10px;
-  /* padding: 20px; */
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@ height: 100%;
   position: absolute;  
   left: 2.7rem;  
   top: 0.7rem; 
-  /* margin-bottom: 2rem;  */
+
 } 
 .styled-button:hover { background-color: #0056b3; } 
 .styled-button .arrow { margin-right: 10px; font-size: 18px}
@@ -49,24 +49,24 @@ height: 100%;
   border-radius: 8px;
   background-color: #fff;
   transition: transform 0.3s ease-in-out;
-  overflow: hidden; /* Ensure the thumbnail and content are contained */
+  overflow: hidden; 
 }
 
 .thumbnail {
-  height: 40%; /* Thumbnail takes up half the height of the card */
+  height: 40%; 
 }
 
 .thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the thumbnail area without distortion */
-  border-radius: 8px 8px 0 0; /* Rounded corners only at the top */
+  object-fit: cover; 
+  border-radius: 8px 8px 0 0;
 }
 
 .card-content {
   padding: 10px;
-  height: 50%; /* Content takes up the other half of the card */
-  box-sizing: border-box; /* Ensure padding is included in the height calculation */
+  height: 50%; 
+  box-sizing: border-box; 
 }
 
 .card:hover {
