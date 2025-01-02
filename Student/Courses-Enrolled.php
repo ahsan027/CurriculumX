@@ -76,15 +76,11 @@ if (isset($_SESSION['username']) &&
         <div class="progress mb-2">
             <div class="progress-bar" role="progressbar" style="width: <?=$progress?>%;" aria-valuenow="<?=$progress?>" aria-valuemin="0" aria-valuemax="100"><?=ceil($progress)?>%</div>
         </div>
-        <?php if ($progress == 100) {?>
+      
         <div class="text-center">
           <a class="btn btn-success" href="Action/generateCertificate.php?course_id=<?=$course['content']['course_id']?>">Get Certificate</a>
         </div>
-        <?php }else { ?>
-          <div class="text-center">
-          <a class="btn btn-warning disabled" href="#">Get Certificate</a>
-        </div>
-        <?php } ?>
+       
         
       </div><hr>
     </div>

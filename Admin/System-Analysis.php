@@ -27,9 +27,10 @@ if($conn->connect_error){
 $query = "SELECT * FROM announcement ORDER BY id DESC LIMIT 1";
 $result = $conn->query($query);
 ?>
+  <?php include "inc/NavBar.php"; ?>
+
 <div class="container  ">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
   
   <div class="p-5  shadow">
     <div class="d-flex align-items-center gap-3">

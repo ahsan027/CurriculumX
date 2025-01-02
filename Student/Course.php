@@ -1,64 +1,77 @@
 <?php 
 session_start();
 include "../Utils/Util.php";
-include "../Utils/Validation.php";
+include "../Database.php";
 if (isset($_SESSION['username']) &&
     isset($_SESSION['student_id'])) {
+
+
+      $db = new Database();
+  $conn = $db->connect();
+  $query = "SELECT * FROM course WHERE course_id = :course_id";
+  $stmt = $conn->prepare($query);
+  $stmt->bindParam(':course_id', $_GET['course_id']);
+  $stmt->execute();
+  $course = $stmt->fetch(PDO::FETCH_ASSOC);
+  // print_r($course);
+  $conn = null;
     
-   if (isset($_GET['course_id'])) {
-      include "../Controller/Student/Course.php";
-      $_id = Validation::clean($_GET['course_id']);
-      $course = getCourseDetails($_id); 
-    }else{
-        $em = "Invalid course id ";
-        Util::redirect("../Courses.php", "error", $em);
-    }
-    if ($course == 0) {
-       $em = "Invalid course id ";
-        Util::redirect("Courses.php", "error", $em);
-    }
     # Header
     $title = "CurriCulumX - Students ";
     include "inc/Header.php";
 
 ?>
+  <?php include "inc/NavBar.php"; ?>
+
 <div class="container">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
 
   <h4 class="course-list-title"></h4>
   <div class="card" style="max-width: 700px;">
     <div class="card-body">
       
-      <h5 class="card-title">Course Title: <?=$course['title']?></h5>
-      <h5 class="card-title pt-3">Course Description: </h5>
+      <h5 class="card-title">Course Title: <?= $course['title'] ?> </h5>
+      <h5 class="card-title pt-3">Course Description: <?=$course['description']?></h5>
       <p class="card-text">
-        <?=$course['description']?>
+       
       </p>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Lessons  :  <?=$course['topic_nums']?></li>
-        <li class="list-group-item">Chapters:   <?=$course['chapter_nums']?></li>
-        <li class="list-group-item">Instructor: <?=$course['instructor_name']?></li>
-        <li class="list-group-item">Created at: <mark><?=$course['created_at']?></mark></li>
-        <li class="list-group-item"><mark>Certificate After Complete The Course</mark></li>
+      <?php if ($course['status'] === "public") { ?>
+        <li class="list-group-item">Status : <mark style="background-color:aquamarine"> <?= $course['status'] ?></mark> </li>
+       <?php } else { ?>
+        <li class="list-group-item">Status : <mark style="background-color: #f8d7da;">Private</mark></li>
+       <?php } ?>
+    
+       <?php
+       
+      $db = new Database();
+      $conn = $db->connect();
+       $query = "SELECT * FROM instructor WHERE instructor_id = :instructor_id";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':instructor_id', $course['instructor_id']); 
+        $stmt->execute();
+        $instructor = $stmt->fetch(PDO::FETCH_ASSOC);
+        // print_r($instructor);
+        $conn = null;
+        ?>
+        <li class="list-group-item">Instructor:<mark> <?php echo $instructor['first_name']." ".$instructor['last_name'] ?></mark></li>
+        <li class="list-group-item">Gsuite: <?php echo $instructor['email']?></li>
+        <li class="list-group-item">Created at: <mark> <?= $course['created_at'] ?></mark></li>
+        <li class="list-group-item"><mark style="background-color:aquamarine;">Certificate After Complete The Course</mark></li>
       </ul>
-    <div class="card-body">
-      <?php if( $course['topic_nums'] > 0) { ?>
-        <a href="Action/Courses-Enrolled.php?course_id=<?=$course['course_id']?>" class="btn btn-success">Enroll Courses</a> 
-     <?php } ?>
-      
-    </div>
+   
       <?php if ($course["cover"] != "default_course.jpg") { ?>
     
       <div>
-        <img src="../Upload/thumbnail/<?=$course["cover"]?>" 
+        <img src="../Upload/thumbnail/<?php echo $course['cover'] ?>" 
              class="img-fluid rounded-start" 
              alt="course"
              width="100%">
       </div>
       <?php } ?>
 </div>
+<a href="Courses.php" class=""><button class="btn btn-primary mt-2">Go Back</button></a>
 </div>
 
  <!-- Footer -->

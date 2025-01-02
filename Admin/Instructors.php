@@ -24,10 +24,10 @@ if (isset($_SESSION['username']) &&
     include "inc/Header.php";
     
 ?>
+  <?php include "inc/NavBar.php"; ?>
 
 <div class="container">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
   
   <div class="list-table pt-5">
   <?php if ($instructors) { ?>

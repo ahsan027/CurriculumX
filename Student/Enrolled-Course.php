@@ -27,9 +27,10 @@ if (isset($_SESSION['username']) &&
     include "inc/Header.php";
     
 ?>
+  <?php include "inc/NavBar.php"; ?>
+
 <div class="container">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
 
  <?php if($len>0){ ?>
   <h4 class="course-list-title">All Enrolled Courses ( <?= $len ?>)</h4>
@@ -51,9 +52,13 @@ if (isset($_SESSION['username']) &&
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title"><?php echo $course['title']?></h5>
+          <h5 class="card-title"><?php echo $course['course_id']?></h5>
+
           <p class="card-text"><?= $course['description'] ?></p>
           <p class="card-text"><small class="text-body-secondary"><?= $course['created_at'] ?></small></p>
-          <a href="Courses-Enrolled.php?course_id=<?= $course['course_id'] ?>" class="btn btn-primary">View Course</a>
+          <a href="courseContents.php?course_id=<?= $course['course_id'] ?>" class="btn btn-primary">View Course</a>
+
+          <a href="Action/generateCertificate.php?course_id=<?= $course['course_id'] ?>" class="btn btn-success">Get Certificate</a>
         </div>
       </div>
       

@@ -43,7 +43,6 @@ if (isset($_SESSION['username']) &&
     }
   
   
-  
   } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
   }
@@ -54,9 +53,10 @@ if (isset($_SESSION['username']) &&
     include "inc/Header.php";
 
 ?>
+  <?php include "inc/NavBar.php"; ?>
+
 <div class="container">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
   <?php include "inc/SearchBox.php"; ?>
 
   <?php if ($courses) { ?>
