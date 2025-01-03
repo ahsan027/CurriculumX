@@ -28,10 +28,10 @@ if (isset($_SESSION['username']) &&
     include "inc/Header.php";
 
 ?>
+  <?php include "inc/NavBar.php"; ?>
 
 <div class="container">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
   
   <div class="list-table pt-5">
   <?php if ($courses) { ?>
@@ -47,7 +47,7 @@ if (isset($_SESSION['username']) &&
       <?php foreach ($courses as $course) {?>
       <tr>
       <td><?=$course["course_id"]?></td>
-       <td><?=$course["title"]?></td>
+       <td><a href="courseDetails.php?course_id=<?=$course['course_id']?>" ><?=$course["title"]?></a></td>
        <td class="status"> <?=$course["status"]?></td>
        <td class="action_btn">
         <?php  
