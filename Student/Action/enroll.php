@@ -7,16 +7,23 @@ try {
 
 
   if (isset($_GET['btnClick'])) {
-    $query = "INSERT INTO enrolled_student (student_id, course_id) VALUES (:student_id, :course_id)";
-    print_r($_GET['btnClick']);
-    echo "<br>";
-    print_r($_SESSION['student_id']);
 
+    $query = "INSERT INTO enrolled_student (student_id, course_id) VALUES (:student_id, :course_id)";
 
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(':student_id', $_SESSION['student_id']);
     $stmt->bindParam(':course_id', $_GET['btnClick']);
     $stmt->execute();
+
+    $newquery = "INSERT INTO certificate (course_id, student_id) VALUES (:course_id, :student_id)";
+
+    $stmt = $pdo->prepare($newquery);
+    $stmt->bindParam(':student_id', $_SESSION['student_id']);
+    $stmt->bindParam(':course_id', $_GET['btnClick']);
+    $stmt->execute();
+    header("Location: ../Courses.php");
+    $pdo = null;
+
 
   }
 

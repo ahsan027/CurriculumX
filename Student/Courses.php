@@ -137,7 +137,7 @@ if (isset($_SESSION['username']) &&
       
         }else{
        
-          echo "<form action=action/enroll.php method=get>";
+          echo "<form action=action/enroll.php method=GET>";
 echo"    <button class='btn btn-primary' type=submit name=btnClick value=". $course['course_id'].">Enroll Course</button>";
             echo "</form>";
           // echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
