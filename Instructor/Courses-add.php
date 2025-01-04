@@ -75,7 +75,7 @@ if (isset($_SESSION['username']) &&
           class="mt-5"
           action="Action/course-chapter-add.php"
           method="POST">
-        <h2>Create a New Chapter</h2>
+        <h2>Create Course Content</h2>
         <div class="mb-3">
             <label for="courseSelect" class="form-label">Select Course</label>
             <select class="form-select" id="courseSelect" name="course_id" required>
@@ -86,55 +86,46 @@ if (isset($_SESSION['username']) &&
                 <?php } ?>
             </select>
         </div>
+        <?php 
+
+        ?>
         <div class="mb-3">
-            <label for="chapterTitle" class="form-label">Chapter Title</label>
+            <label for="chapterTitle" class="form-label">Topic Title</label>
             <input type="text" 
                    class="form-control" 
-                   id="chapterTitle" 
+                   id="topic_title" 
                    placeholder="Enter chapter title" 
-                   name="chapter_title" 
-                   required>
-        </div>
-        <button type="submit" class="btn btn-primary">Create Chapter</button>
-    </form>
-
-    <hr>
-
-
-    <form id="Topic" 
-          class="mt-5"
-          action="Action/course-topic-add.php"
-          method="POST">
-        <h2>Create a New Topic</h2>
-        <div class="mb-3">
-            <label for="courseSelectTopic" class="form-label">Select Course</label>
-            <select class="form-select" id="courseSelectTopic" name="course_id" required>
-               <?php if ($courses) { ?>
-                    <?php foreach ($courses as $course) { ?>
-                        <option value="<?=$course['course_id']?>"><?=$course['title']?></option>
-                    <?php }?>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="chapterSelect" class="form-label">Select Chapter</label>
-            <select class="form-select" 
-                    id="chapterSelect" 
-                    name="chapter_id" 
-                    required>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="topicTitle" class="form-label">Topic Title</label>
-            <input type="text" 
-                   class="form-control" 
-                   id="topicTitle" 
-                   placeholder="Enter topic title" 
                    name="topic_title" 
                    required>
         </div>
-        <button type="submit" class="btn btn-primary">Create Topic</button>
+        <div class="mb-3">
+            <label for="courseDescription" class="form-label">Course Description</label>
+            <textarea class="form-control" 
+                      id="courseDescription" 
+                      rows="4" 
+                      name="Contentdescription" 
+                      placeholder="Enter course description" 
+                      required ><?=$description?></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="chapterTitle" class="form-label">Video Link</label>
+            <input type="text" 
+                   class="form-control" 
+                   id="videoLink" 
+                   placeholder="Enter content video link..." 
+                   name="videoLink" 
+                   required>
+        </div>
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label">Upload Thumbnail</label>
+            <input type="file" class="form-control" 
+                   id="thumbnail" placeholder="Upload a thumbnail.." 
+                   name="thumbnail" />
+        </div>
+        <button type="submit" class="btn btn-success">Create Content</button>
     </form>
+
+    <hr>
    </div>
 </div>
 

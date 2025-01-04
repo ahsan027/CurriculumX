@@ -91,7 +91,7 @@ class Course {
           $stmt->bindParam(':id', $instructor_id, PDO::PARAM_INT);
           $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
           $stmt->bindParam(':l', $num, PDO::PARAM_INT);
-           $stmt->execute();
+          $stmt->execute();
 
           // $sql = "SELECT * FROM post LIMIT :offset, :l";
           if($stmt->rowCount() > 0) {
@@ -208,6 +208,7 @@ class Course {
           return 0;
        }
    }
+
    function getContent($cour_id, $chapter_id, $topic_id){
      try {
           $sql = 'SELECT * FROM content WHERE course_id=? AND chapter_id=? AND topic_id=?';
@@ -237,6 +238,7 @@ class Course {
           return 0;
        }
    }
+
    function isPageExes($cour_id, $chapter_id, $topic_id){
      try {
           $sql = 'SELECT * FROM topic WHERE course_id=? AND chapter_id=? AND topic_id=?';
@@ -285,7 +287,7 @@ class Course {
                                "cover"=> $course_res['cover']
                                );
                 $instr_id = $course_res['instructor_id'];
-                // Get instructor
+                
                 $sql = 'SELECT * FROM instructor WHERE instructor_id=?';
                 $stmt = $this->conn->prepare($sql);
                 $stmt->execute([$instr_id]);
@@ -293,7 +295,7 @@ class Course {
 
                 $course["instructor_name"] = $instructor["first_name"]." ".$instructor["last_name"];
 
-                // get all chapters
+            
                 $sql = 'SELECT * FROM chapter WHERE course_id=?';
                 $stmt = $this->conn->prepare($sql);
                 $stmt->execute([$cour_id]);

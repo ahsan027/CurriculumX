@@ -495,3 +495,5 @@ VALUES
 INSERT INTO contents (topic_title, thumbnail, course_id, descriptions) VALUES ('Course 1 Overview', 'thumbnail17.jpg', 1, 'A brief introduction to the objectives of Course 1.'), 
 ('Course 1 Key Learnings', 'thumbnail18.jpg', 1, 'Key takeaways and learnings from Course 1.'),
 ('Exploring Course 3', 'thumbnail19.jpg', 3, 'A detailed exploration of Course 3 topics.');
+
+ALTER TABLE contents ADD video_link varchar(255);
