@@ -16,9 +16,7 @@
            <li class="nav-item position-relative">
                   <a class="nav-link" href="Courses-Materials.php" >Courses Materials</a>
             </li>
-            <li class="nav-item position-relative">
-                  <a class="nav-link" href="../index.php" >Back To Home</a>
-            </li>
+
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Create
@@ -30,6 +28,9 @@
             <li><a class="dropdown-item" href="Courses-content-add.php">Create Course Content</a></li>
           </ul>
         </li>
+        <li class="nav-item position-relative">
+                  <a class="nav-link" href="../index.php" >Back To Home</a>
+            </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">

@@ -9,9 +9,10 @@ if (isset($_SESSION['username']) &&
   $title = "CurriculumX - Upload Courses Materials ";
   include "inc/Header.php";
 ?>
+  <?php include "inc/NavBar.php"; ?>
+
 <div class="container">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
   
   <div class="list-table pt-5">
   <h4>Upload Courses Materials <a href="Courses-Materials.php" class="btn btn-primary">All Materials</a></h4>
