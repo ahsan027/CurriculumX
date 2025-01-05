@@ -21,9 +21,10 @@ if (isset($_SESSION['username']) &&
         $description = Validation::clean($_GET["description"]);
     }
 ?>
+  <?php include "inc/NavBar.php"; ?>
+
 <div class="container">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
     <!-- Form for creating a course -->
     <div class="mt-5" style="max-width: 800px;">
     <form id="courseForm" 

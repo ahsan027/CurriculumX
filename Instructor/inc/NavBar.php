@@ -23,9 +23,9 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="Courses-add.php">Create New Courses</a></li>
-            <li><a class="dropdown-item" href="Courses-add.php#Chapter">Create Chapter</a></li>
-            <li><a class="dropdown-item" href="Courses-add.php#Topic">Create Topic</a></li>
-            <li><a class="dropdown-item" href="Courses-content-add.php">Create Course Content</a></li>
+            <li><a class="dropdown-item" href="Courses-add.php#Chapter">Create Course Content</a></li>
+
+
           </ul>
         </li>
         <li class="nav-item position-relative">

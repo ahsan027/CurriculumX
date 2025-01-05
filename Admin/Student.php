@@ -19,10 +19,10 @@ if (isset($_SESSION['username']) &&
     $title = "CurriculumX - Student ";
     include "inc/Header.php";
 ?>
+  <?php include "inc/NavBar.php"; ?>
 
 <div class="container text-center">
   <!-- NavBar -->
-  <?php include "inc/NavBar.php"; ?>
   
   <div class="list-table pt-5">
   <div class="r-side p-5 shadow" style="max-width: 500px;">

@@ -68,12 +68,12 @@ if (isset($_SESSION['username']) &&
 
        ?></td>
        <td class="action_btn">
-        <?php  
-        $status = $course["status"];
-        $course_id = $course["course_id"];
-        $text_temp = $course["status"] == "Public" ? "Private": "Public";
-        ?> 
-        <a href="javascript:void()" onclick="ChangeStatus(this, <?=$course_id?>)" class="btn btn-warning"><?=$text_temp?></a>
+        <form method="POST" action="inc/deleteStudent.php">
+   <button type="submit" class="btn btn-warning" name="myButton" value="<?php echo json_encode([$dept[0]['student_id'], $_GET['course_id']]);?>">Delete Student</button>
+</form>
+
+        
+        
        </td>
       </tr>
       <?php } ?>
