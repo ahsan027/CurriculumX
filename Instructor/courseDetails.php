@@ -7,6 +7,7 @@ if (isset($_SESSION['username']) &&
 
   $db = new Database();
   $conn = $db->Connect();
+  $course_id = $_GET['course_id'];
 
   if (isset($_GET['course_id'])) {
     $query = "SELECT * FROM Student s INNER JOIN enrolled_student e ON e.student_id = s.student_id WHERE course_id = :course_id";
@@ -68,9 +69,8 @@ if (isset($_SESSION['username']) &&
 
        ?></td>
        <td class="action_btn">
-        <form method="POST" action="inc/deleteStudent.php">
-   <button type="submit" class="btn btn-warning" name="myButton" value="<?php echo json_encode([$dept[0]['student_id'], $_GET['course_id']]);?>">Delete Student</button>
-</form>
+       
+   <a href="inc/deleteStudent.php?student_id=<?= $dept[0]['student_id']; ?>,<?= $course_id?>" class="btn btn-warning">Delete Student</a>
 
         
         

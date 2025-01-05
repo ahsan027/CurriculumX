@@ -2,30 +2,34 @@
 $dns = 'mysql:host=localhost;dbname=curriculumx';
 $pdo = new PDO($dns, 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+$student_id = $_GET['student_id'];
+$info = explode(",", $student_id);
 try {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['myButton'])) {
-            $buttonValue = $_POST['myButton'];
-            
-            // Start transaction
-            $pdo->beginTransaction();
+    
+    if (isset($info[0])) {
+        $student_id = $info[0];
+        $course_id = $info[1];
+        
+        $pdo->beginTransaction();
 
+        $sql = "DELETE FROM enrolled_student WHERE student_id = :student_id AND course_id=:course_id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':student_id', $student_id);
+        $stmt->bindParam(':course_id', $course_id);
 
-            // Delete related rows in enrolled_student table
-            $sql = "DELETE FROM enrolled_student WHERE student_id = :student_id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':student_id', $buttonValue);
-            $stmt->execute();
+        if($stmt->execute()){
+            echo "Successfully Deleted";
+        }
+        else{
+            echo "Not Attainable";
+        }
+        $pdo->commit();
 
-            // Commit transaction
-            $pdo->commit();
-
-            header("Location: delSuccess.php");
+        // header("Location: delSuccess.php");
         } else {
             echo "Button Was Never Clicked";
         }
-    }
+   
 } catch (PDOException $e) {
     // Rollback transaction if there is an error
     $pdo->rollBack();
@@ -41,6 +45,11 @@ try {
     <title>Document</title>
 </head>
 <body>
-    <h1>Deletion Process</h1>
+    <h1>Deletion Process
+
+     
+        <?= $info[0]." ". $info[1]?>
+
+    </h1>
 </body>
 </html>
