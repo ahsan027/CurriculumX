@@ -53,22 +53,14 @@ if (isset($_SESSION['username']) &&
 
        $query = "INSERT INTO contents (topic_title, thumbnail, course_id,descriptions,video_link) VALUES (:topic_title,:thumbnail, :course_id, :descriptions, :video_link)";
 
-         $stmt = $conn->prepare($query);
-            $stmt->bindParam(':topic_title', $chapter_title);
-            $stmt->bindParam(':thumbnail', $thumbnail);
-            $stmt->bindParam(':course_id', $course_id);
-            $stmt->bindParam(':descriptions', $_POST["descriptions"]);
-            $stmt->bindParam(':video_link', $_POST["video_link"]);
-            $res = $stmt->execute();
-            print_r($res);
-
-
-
-
-
-
-
-
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':topic_title', $chapter_title);
+        $stmt->bindParam(':thumbnail', $thumbnail);
+        $stmt->bindParam(':course_id', $course_id);
+        $stmt->bindParam(':descriptions', $_POST["descriptions"]);
+        $stmt->bindParam(':video_link', $_POST["video_link"]);
+        $res = $stmt->execute();
+        print_r($res);
 
        if ($res) {
         $sm = "New chapter Successfully Created!";
