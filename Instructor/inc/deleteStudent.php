@@ -18,7 +18,7 @@ try {
         $stmt->bindParam(':course_id', $course_id);
 
         if($stmt->execute()){
-            echo "Successfully Deleted";
+            header("Location: ../Courses.php");
         }
         else{
             echo "Not Attainable";
