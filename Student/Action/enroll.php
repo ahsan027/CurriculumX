@@ -15,12 +15,12 @@ try {
     $stmt->bindParam(':course_id', $_GET['btnClick']);
     $stmt->execute();
 
-    $newquery = "INSERT INTO certificate (course_id, student_id) VALUES (:course_id, :student_id)";
+    // $newquery = "INSERT INTO certificates (course_id, student_id) VALUES (:course_id, :student_id)";
 
-    $stmt = $pdo->prepare($newquery);
-    $stmt->bindParam(':student_id', $_SESSION['student_id']);
-    $stmt->bindParam(':course_id', $_GET['btnClick']);
-    $stmt->execute();
+    // $stmt = $pdo->prepare($newquery);
+    // $stmt->bindParam(':student_id', $_SESSION['student_id']);
+    // $stmt->bindParam(':course_id', $_GET['btnClick']);
+    // $stmt->execute();
     header("Location: ../Courses.php");
     $pdo = null;
 

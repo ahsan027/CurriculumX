@@ -11,7 +11,7 @@ class Certificate {
 
    function __construct($db_conn){
      $this->conn = $db_conn;
-     $this->table_name = "certificate";
+     $this->table_name = "certificates";
    }
 
    function getById($certif_id){

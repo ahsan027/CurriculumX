@@ -88,9 +88,6 @@ if (isset($_SESSION['username']) &&
        
           echo " <form action=action/enroll.php method=GET>";
           echo "<button class='btn btn-primary' type=submit name=btnClick>Enroll</button>";
-          // echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
-
-    
           echo "</form>";
    
         }
