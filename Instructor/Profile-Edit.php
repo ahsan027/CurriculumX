@@ -18,10 +18,12 @@ if (isset($_SESSION['username']) &&
     include "inc/Header.php";
 
 ?>
+
+<?php include "inc/NavBar.php"; ?>
+
 <div class="container">
   <!-- NavBar & Profile-->
-  <?php include "inc/NavBar.php"; 
-        include "inc/Profile.php"; ?>
+       <?php include "inc/Profile.php"; ?>
 
 
     <div class="r-side p-5  mx-2 shadow">

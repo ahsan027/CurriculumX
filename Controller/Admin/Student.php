@@ -9,11 +9,11 @@ include "../Database.php";
 function getSomeStudent($offset, $num){
 
 	$db = new Database();
-      $db_conn = $db->connect();
+  $db_conn = $db->connect();
 	$student_models = new Student($db_conn);
 
 	$data = $student_models->getSome($offset, $num);
-	
+
 	return $data;
 }
 
