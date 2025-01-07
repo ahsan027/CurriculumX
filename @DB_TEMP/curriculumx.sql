@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2025 at 01:41 AM
+-- Generation Time: Jan 07, 2025 at 09:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -68,30 +68,23 @@ INSERT INTO `announcement` (`id`, `fname`, `file_path`, `uploaded_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `certificate`
+-- Table structure for table `certificates`
 --
 
-CREATE TABLE `certificate` (
-  `certificate_id` int(11) NOT NULL,
-  `course_id` int(11) NOT NULL,
-  `student_id` int(11) NOT NULL,
-  `issue_date` date NOT NULL DEFAULT current_timestamp()
+CREATE TABLE `certificates` (
+  `certificate_id` int(10) NOT NULL,
+  `student_id` int(10) NOT NULL,
+  `course_id` int(10) NOT NULL,
+  `issue_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `certificate`
+-- Dumping data for table `certificates`
 --
 
-INSERT INTO `certificate` (`certificate_id`, `course_id`, `student_id`, `issue_date`) VALUES
-(134536, 1, 1, '2024-02-03'),
-(134537, 19, 1, '2024-02-03'),
-(134538, 19, 2, '2024-02-03'),
-(134539, 8, 1, '2025-01-03'),
-(134540, 7, 1, '2025-01-03'),
-(134541, 23, 1, '2025-01-04'),
-(134542, 13, 1, '2025-01-04'),
-(134543, 3, 1, '2025-01-04'),
-(134544, 1, 1, '2025-01-06');
+INSERT INTO `certificates` (`certificate_id`, `student_id`, `course_id`, `issue_date`) VALUES
+(1, 1, 1, '2025-01-07 06:16:32'),
+(2, 1, 19, '2025-01-07 08:21:20');
 
 -- --------------------------------------------------------
 
@@ -223,12 +216,8 @@ CREATE TABLE `enrolled_student` (
 --
 
 INSERT INTO `enrolled_student` (`enrolled_id`, `course_id`, `student_id`, `enrolled_at`) VALUES
-(11, 19, 1, '2024-02-03'),
-(13, 7, 1, '2024-12-26'),
-(15, 13, 1, '2025-01-03'),
-(16, 8, 1, '2025-01-03'),
-(17, 23, 1, '2025-01-04'),
-(18, 1, 1, '2025-01-06');
+(20, 1, 1, '2025-01-07'),
+(21, 19, 1, '2025-01-07');
 
 -- --------------------------------------------------------
 
@@ -314,12 +303,12 @@ ALTER TABLE `announcement`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `certificate`
+-- Indexes for table `certificates`
 --
-ALTER TABLE `certificate`
+ALTER TABLE `certificates`
   ADD PRIMARY KEY (`certificate_id`),
-  ADD KEY `course_id` (`course_id`),
-  ADD KEY `student_id` (`student_id`);
+  ADD KEY `fk_student` (`student_id`),
+  ADD KEY `fk_course` (`course_id`);
 
 --
 -- Indexes for table `contents`
@@ -379,10 +368,10 @@ ALTER TABLE `announcement`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `certificate`
+-- AUTO_INCREMENT for table `certificates`
 --
-ALTER TABLE `certificate`
-  MODIFY `certificate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134545;
+ALTER TABLE `certificates`
+  MODIFY `certificate_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contents`
@@ -412,7 +401,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `enrolled_student`
 --
 ALTER TABLE `enrolled_student`
-  MODIFY `enrolled_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `enrolled_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `instructor`
@@ -431,11 +420,11 @@ ALTER TABLE `student`
 --
 
 --
--- Constraints for table `certificate`
+-- Constraints for table `certificates`
 --
-ALTER TABLE `certificate`
-  ADD CONSTRAINT `certificate_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  ADD CONSTRAINT `certificate_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
+ALTER TABLE `certificates`
+  ADD CONSTRAINT `fk_course` FOREIGN KEY (`course_id`) REFERENCES `enrolled_student` (`course_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_student` FOREIGN KEY (`student_id`) REFERENCES `enrolled_student` (`student_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `contents`
