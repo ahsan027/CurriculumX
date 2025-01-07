@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2025 at 09:27 AM
+-- Generation Time: Jan 07, 2025 at 02:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -77,14 +77,6 @@ CREATE TABLE `certificates` (
   `course_id` int(10) NOT NULL,
   `issue_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `certificates`
---
-
-INSERT INTO `certificates` (`certificate_id`, `student_id`, `course_id`, `issue_date`) VALUES
-(1, 1, 1, '2025-01-07 06:16:32'),
-(2, 1, 19, '2025-01-07 08:21:20');
 
 -- --------------------------------------------------------
 
@@ -211,14 +203,6 @@ CREATE TABLE `enrolled_student` (
   `enrolled_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `enrolled_student`
---
-
-INSERT INTO `enrolled_student` (`enrolled_id`, `course_id`, `student_id`, `enrolled_at`) VALUES
-(20, 1, 1, '2025-01-07'),
-(21, 19, 1, '2025-01-07');
-
 -- --------------------------------------------------------
 
 --
@@ -272,8 +256,6 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_id`, `username`, `password`, `first_name`, `last_name`, `email`, `date_of_birth`, `date_of_joined`, `status`, `profile_img`, `department_id`) VALUES
-(1, 'johnc', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'John', 'Chena', 'johnChena.wwe@gmail.com', '2000-05-06', '2024-01-14', 'Active', 'johnc.jpg', 3),
-(2, 'sunny', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Sunny', 'Deol', 'sunny@gmail.com', '1998-05-12', '2024-01-14', 'Active', 'chillGirl.jpg', 1),
 (101, 'arif23', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Arif', 'Hossain', 'arif.hossain@example.com', '2000-01-15', '2024-01-15', 'Active', 'default.jpg', 1),
 (102, 'naimur45', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Naimur', 'Rahman', 'naimur.rahman@example.com', '1999-04-20', '2024-02-01', 'Active', 'default.jpg', 1),
 (103, 'kamal67', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Kamal', 'Ahmed', 'kamal.ahmed@example.com', '2001-03-10', '2024-03-10', 'Not Active', 'default.jpg', 1),
@@ -284,6 +266,26 @@ INSERT INTO `student` (`student_id`, `username`, `password`, `first_name`, `last
 (108, 'shamima78', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Shamima', 'Sultana', 'shamima.sultana@example.com', '1996-11-30', '2024-08-10', 'Active', 'chillGirl.jpg', 3),
 (109, 'nusrat90', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Nusrat', 'Jahan', 'nusrat.jahan@example.com', '2004-12-05', '2024-09-25', 'Active', 'chillGirl.jpg', 2),
 (110, 'mala12', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Mala', 'Khatun', 'mala.khatun@example.com', '1995-05-19', '2024-10-15', 'Not Active', 'chillGirl.jpg', 3),
+(10234, 'Munia', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Munia', 'Ford', 'munia.ford@example.com', '2000-12-14', '2022-03-21', 'Active', 'chillGirl.jpg', 3),
+(11234, 'Rakib', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Rakib', 'Gill', 'rakib.gill@example.com', '2003-02-11', '2022-12-30', 'Not Active', 'default.jpg', 3),
+(11345, 'Hasan', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Hasan', 'Taylor', 'hasan.taylor@example.com', '2004-01-07', '2021-05-06', 'Not Active', 'default.jpg', 2),
+(12345, 'Saiful', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Saiful', 'Richard', 'saiful.richard@example.com', '2005-06-18', '2023-07-30', 'Not Active', 'default.jpg', 3),
+(22345, 'Farhana', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Farhana', 'Stewart', 'farhana.stewart@example.com', '2001-09-19', '2022-08-10', 'Active', 'chillGirl.jpg', 1),
+(23456, 'Afsana', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Afsana', 'Garcia', 'afsana.garcia@example.com', '1999-08-24', '2022-10-22', 'Active', 'chillGirl.jpg', 2),
+(33456, 'Rony', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Rony', 'Wright', 'rony.wright@example.com', '2004-03-03', '2023-06-12', 'Not Active', 'default.jpg', 2),
+(34567, 'Rashid', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Rashid', 'Clayton', 'rashid.clayton@example.com', '2001-11-07', '2022-01-27', 'Active', 'default.jpg', 2),
+(44567, 'Tania', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Tania', 'Garcia', 'tania.garcia@example.com', '2002-04-15', '2021-11-25', 'Active', 'chillGirl.jpg', 3),
+(45678, 'Sabbir', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Sabbir', 'Olsen', 'sabbir.olsen@example.com', '2003-08-12', '2021-09-23', 'Active', 'default.jpg', 3),
+(55678, 'Rafi', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Rafi', 'Bennett', 'rafi.bennett@example.com', '2005-05-22', '2023-02-18', 'Not Active', 'default.jpg', 2),
+(56789, 'Sumaiya', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Sumaiya', 'Leblanc', 'sumaiya.leblanc@example.com', '2003-08-13', '2023-04-30', 'Not Active', 'chillGirl.jpg', 1),
+(66789, 'Arifa', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Arifa', 'Harris', 'arifa.harris@example.com', '2000-10-11', '2022-04-30', 'Active', 'chillGirl.jpg', 1),
+(67890, 'Mim', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Mim', 'Rogers', 'mim.rogers@example.com', '2000-08-20', '2022-01-25', 'Active', 'chillGirl.jpg', 3),
+(77890, 'Kamal', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Kamal', 'Scott', 'kamal.scott@example.com', '2003-07-09', '2021-03-14', 'Active', 'default.jpg', 3),
+(78901, 'Sumaiya', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Sumaiya', 'Obrien', 'sumaiya.obrien@example.com', '2003-12-01', '2021-01-06', 'Not Active', 'chillGirl.jpg', 3),
+(88901, 'Nazia', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Nazia', 'Morris', 'nazia.morris@example.com', '2001-06-25', '2020-09-22', 'Not Active', 'chillGirl.jpg', 2),
+(89012, 'Anika', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Anika', 'Bell', 'anika.bell@example.com', '2000-07-20', '2020-07-08', 'Not Active', 'chillGirl.jpg', 1),
+(90123, 'Fahim', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Fahim', 'Wilson', 'fahim.wilson@example.com', '2006-11-08', '2023-10-06', 'Active', 'default.jpg', 2),
+(99012, 'Rahim', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Rahim', 'Howard', 'rahim.howard@example.com', '2005-08-18', '2023-01-10', 'Active', 'default.jpg', 1),
 (654348, 'rafsan07', '$2y$10$WEwR3hERHM.BLmWQYCu1OOqDVmyN0dtlWk9LV3mLsKre9f3xlFdj2', 'Rafsan', 'The Motu', 'rafsanthemotubhai@gmail.com', '2015-03-19', '2024-12-28', 'Active', 'rafsan.jpg', 2);
 
 --
@@ -371,7 +373,7 @@ ALTER TABLE `announcement`
 -- AUTO_INCREMENT for table `certificates`
 --
 ALTER TABLE `certificates`
-  MODIFY `certificate_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `certificate_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contents`
@@ -401,7 +403,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `enrolled_student`
 --
 ALTER TABLE `enrolled_student`
-  MODIFY `enrolled_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `enrolled_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `instructor`
@@ -449,7 +451,7 @@ ALTER TABLE `coursesmaterial`
 --
 ALTER TABLE `enrolled_student`
   ADD CONSTRAINT `enrolled_student_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `course` (`course_id`),
-  ADD CONSTRAINT `enrolled_student_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
+  ADD CONSTRAINT `enrolled_student_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
