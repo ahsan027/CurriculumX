@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2025 at 02:58 PM
+-- Generation Time: Jan 08, 2025 at 02:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,6 +78,14 @@ CREATE TABLE `certificates` (
   `issue_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `certificates`
+--
+
+INSERT INTO `certificates` (`certificate_id`, `student_id`, `course_id`, `issue_date`) VALUES
+(6, 101, 24, '2025-01-07 17:59:16'),
+(7, 107, 8, '2025-01-07 19:03:20');
+
 -- --------------------------------------------------------
 
 --
@@ -116,7 +124,8 @@ INSERT INTO `contents` (`topic_id`, `topic_title`, `thumbnail`, `course_id`, `up
 (15, 'Data Science Overview', 'thumbnail17.jpg', 1, '2025-01-01 14:55:19', 'A brief introduction to the objectives of Course 1.', NULL),
 (16, 'Data Science Key Learnings', 'thumbnail18.jpg', 1, '2025-01-01 14:55:19', 'Key takeaways and learnings from Course 1.', NULL),
 (17, 'Exploring Course 3', 'thumbnail19.jpg', 3, '2025-01-01 14:55:19', 'A detailed exploration of Course 3 topics.', NULL),
-(18, 'DFA to RegEx', 'default_course.jpg', 23, '2025-01-04 15:47:37', NULL, NULL);
+(18, 'DFA to RegEx', 'default_course.jpg', 23, '2025-01-04 15:47:37', NULL, NULL),
+(19, 'Introduction to Cyber Security', 'default_course.jpg', 24, '2025-01-07 18:03:45', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,7 +155,8 @@ INSERT INTO `course` (`course_id`, `title`, `description`, `instructor_id`, `cre
 (13, 'Creative Writing', 'Explore the art of creative writing through various genres such as fiction, poetry, and non-fiction. This course encourages students to develop their unique voice and style while providing techniques and exercises to enhance their writing skills. Students will engage in workshops, peer reviews, and discussions to refine their craft. Topics include character development, plot structure, and literary devices. Perfect for aspiring authors and writers, this course will help students to express their creativity and effectively convey their ideas through the written word.', 3, '2024-03-10', 'Public', 'creative_writing.jpg'),
 (19, 'PHP', 'PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages.\n\nPHP is a widely-used, free, and efficient alternative to competitors such as Microsoft\'s ASP. PHP is an amazing and popular language!\n\nIt is powerful enough to be at the core of the biggest blogging system on the web (WordPress)!\nIt is deep enough to run large social networks!\nIt is also easy enough to be a beginner\'s first server side language!', 1, '2024-02-03', 'Public', 'COVER-65be586036a403.96711861.jpg'),
 (22, 'Digital Marketing', 'Learn the strategies and tools needed to succeed in digital marketing. This course covers essential topics such as search engine optimization (SEO), social media marketing, content marketing, and email marketing. Students will gain hands-on experience with real-world projects and case studies. The course also explores data analytics, pay-per-click advertising, and the latest trends in digital marketing. By the end of the course, students will have a solid understanding of how to create and execute effective digital marketing campaigns to reach and engage their target audience.', 1, '2024-04-05', 'Public', 'digital_marketing.jpg'),
-(23, 'Automata and Computibility', 'This course provides an in-depth exploration of the theoretical foundations of computer science, focusing on automata theory, formal languages, and computational models. Students will examine the mathematical principles that define what can be computed and the limitations of computational systems. Topics include finite automata, regular expressions, context-free grammars, pushdown automata, Turing machines, undecidability, and complexity classes. The course bridges the gap between abstract computational theory and practical applications in algorithm design and software development.', 1, '2025-01-04', 'Public', 'COVER-677912d8b1bb93.00832587.png');
+(23, 'Automata and Computibility', 'This course provides an in-depth exploration of the theoretical foundations of computer science, focusing on automata theory, formal languages, and computational models. Students will examine the mathematical principles that define what can be computed and the limitations of computational systems. Topics include finite automata, regular expressions, context-free grammars, pushdown automata, Turing machines, undecidability, and complexity classes. The course bridges the gap between abstract computational theory and practical applications in algorithm design and software development.', 1, '2025-01-04', 'Public', 'COVER-677912d8b1bb93.00832587.png'),
+(24, 'Cyber Security', 'This cybersecurity course provides a comprehensive overview of protecting digital systems, networks, and data from cyber threats. Topics include threat analysis, encryption, ethical hacking, and incident response. Through hands-on exercises and real-world scenarios, students will develop practical skills to identify vulnerabilities, defend against attacks, and safeguard sensitive information effectively.', 1, '2025-01-07', 'Public', 'COVER-677d6a1c3f3928.49451890.jpg');
 
 -- --------------------------------------------------------
 
@@ -168,7 +178,8 @@ CREATE TABLE `coursesmaterial` (
 
 INSERT INTO `coursesmaterial` (`material_id`, `URL`, `type`, `instructor_id`, `created_at`) VALUES
 (11, '../Upload/CoursesMaterials/PDF/Material-PDF67790fef7b27d4.71622816.pdf', 'PDF', 1, '2025-01-04'),
-(12, '../Upload/CoursesMaterials/PDF/Material-PDF677ab44cb9f632.49639063.pdf', 'PDF', 1, '2025-01-05');
+(12, '../Upload/CoursesMaterials/PDF/Material-PDF677ab44cb9f632.49639063.pdf', 'PDF', 1, '2025-01-05'),
+(13, '../Upload/CoursesMaterials/PDF/Material-PDF677d6c449aa219.20290962.pdf', 'PDF', 1, '2025-01-08');
 
 -- --------------------------------------------------------
 
@@ -202,6 +213,17 @@ CREATE TABLE `enrolled_student` (
   `student_id` int(11) NOT NULL,
   `enrolled_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `enrolled_student`
+--
+
+INSERT INTO `enrolled_student` (`enrolled_id`, `course_id`, `student_id`, `enrolled_at`) VALUES
+(25, 7, 101, '2025-01-07'),
+(26, 24, 101, '2025-01-07'),
+(27, 8, 107, '2025-01-08'),
+(28, 19, 107, '2025-01-08'),
+(29, 24, 107, '2025-01-08');
 
 -- --------------------------------------------------------
 
@@ -262,7 +284,7 @@ INSERT INTO `student` (`student_id`, `username`, `password`, `first_name`, `last
 (104, 'aminul89', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Aminul', 'Islam', 'aminul.islam@example.com', '1998-06-05', '2024-04-05', 'Active', 'default.jpg', 1),
 (105, 'rafiq12', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Rafiq', 'Chowdhury', 'rafiq.chowdhury@example.com', '2002-07-25', '2024-05-20', 'Active', 'default.jpg', 2),
 (106, 'sabina34', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Sabina', 'Yasmin', 'sabina.yasmin@example.com', '1997-09-10', '2024-06-15', 'Not Active', 'chillGirl.jpg', 2),
-(107, 'rina56', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Rina', 'Akter', 'rina.akter@example.com', '2003-02-14', '2024-07-22', 'Active', 'chillGirl.jpg', 2),
+(107, 'rina56', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Dishaa', 'Raian', 'raianaferdous@gmail.com', '2003-02-14', '2024-07-22', 'Active', 'chillGirl.jpg', 2),
 (108, 'shamima78', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Shamima', 'Sultana', 'shamima.sultana@example.com', '1996-11-30', '2024-08-10', 'Active', 'chillGirl.jpg', 3),
 (109, 'nusrat90', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Nusrat', 'Jahan', 'nusrat.jahan@example.com', '2004-12-05', '2024-09-25', 'Active', 'chillGirl.jpg', 2),
 (110, 'mala12', '$2y$10$pZBCcBKYObRYXfxAchPPe.qgNQvgs3g0vJXD.dOeqvSS72lJeyQIm', 'Mala', 'Khatun', 'mala.khatun@example.com', '1995-05-19', '2024-10-15', 'Not Active', 'chillGirl.jpg', 3),
@@ -373,25 +395,25 @@ ALTER TABLE `announcement`
 -- AUTO_INCREMENT for table `certificates`
 --
 ALTER TABLE `certificates`
-  MODIFY `certificate_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `certificate_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
-  MODIFY `topic_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `topic_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `coursesmaterial`
 --
 ALTER TABLE `coursesmaterial`
-  MODIFY `material_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `material_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -403,7 +425,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `enrolled_student`
 --
 ALTER TABLE `enrolled_student`
-  MODIFY `enrolled_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `enrolled_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `instructor`
