@@ -77,10 +77,33 @@ if (isset($_SESSION['username']) &&
         
           <h5 class="card-title"><?=$course["title"]?></h5>
           <p class="card-text"><?=$course["description"]?></p>
-          <p class="card-text"><small class="text-body-secondary"><?=$course["created_at"]?></small></p>
+          <p class="card-text"><small class="text-body-secondary"><?=$course["created_at"]?><?=$course["instructor_id"]?> </small></p>
+
+
           <?php
-        
-        if (in_array($course['course_id'],$resArr)) {
+$dsn = 'mysql:host=localhost;dbname=curriculumx';
+$username = 'root';
+$password = '';
+try{
+  
+    $pdo = new PDO($dsn, $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+        $query = "SELECT * FROM instructor WHERE instructor_id=:instructor_id";
+        $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':instructor_id', $course['instructor_id']);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // print_r($result[0]["status"]);
+    $flag = false;
+    if($result[0]["status"]==="Active"){
+      
+      $flag = true;
+    }
+    // var_dump($flag);
+    if($flag){
+
+       if (in_array($course['course_id'],$resArr)) {
         
           echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>View Course</a>";
       
@@ -91,6 +114,20 @@ if (isset($_SESSION['username']) &&
           echo "</form>";
    
         }
+
+    }else{
+          echo "<button class='btn btn-danger'>Enroll Blocked</button>";
+
+    }
+    
+    
+
+}catch(PDOException $e){
+  echo "$e";
+}   
+
+
+       
         
     ?>
     <?php
@@ -127,6 +164,28 @@ if (isset($_SESSION['username']) &&
           <p class="card-text"><small class="text-body-secondary"><?=$course["created_at"]?></small></p>
 
           <?php
+          
+$dsn = 'mysql:host=localhost;dbname=curriculumx';
+$username = 'root';
+$password = '';
+try{
+  
+    $pdo = new PDO($dsn, $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+        $query = "SELECT * FROM instructor WHERE instructor_id=:instructor_id";
+        $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':instructor_id', $course['instructor_id']);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // print_r($result[0]["status"]);
+    $flag = false;
+    if($result[0]["status"]==="Active"){
+      
+      $flag = true;
+    }
+    // var_dump($flag);
+    if($flag){
         
         if (in_array($course['course_id'],$resArr)) {
         
@@ -137,12 +196,17 @@ if (isset($_SESSION['username']) &&
           echo "<form action=action/enroll.php method=GET>";
 echo"    <button class='btn btn-primary' type=submit name=btnClick value=". $course['course_id'].">Enroll Course</button>";
             echo "</form>";
-          // echo "<a href='Course.php?course_id=".$course['course_id']."' class='btn btn-primary'>Enroll</a>";
-
-    
           echo "</form>";
    
         }
+      }else{
+        echo "<button class='btn btn-danger'>Enroll Blocked</button>";
+
+      }
+    }catch(PDOException $e){
+      echo $e;
+
+    }
         
     ?>
         </div>
