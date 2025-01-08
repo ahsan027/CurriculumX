@@ -178,7 +178,7 @@ try{
     $stmt->bindParam(':instructor_id', $course['instructor_id']);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // print_r($result[0]["status"]);
+    
     $flag = false;
     if($result[0]["status"]==="Active"){
       
